@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection"content="telephone=no, email=no" />
+	<title>输入券号（请输入）</title>
+	<link rel="stylesheet" href="http://webresource.c-ctrip.com/styles/h5/common/main.css">
+	<link rel="stylesheet" href="css/track_mobile.css">
+    <script type="text/javascript" src="js/jquery-1.9.0.js"></script>
+    <script type="text/javascript" src="js/test.js"></script>
+    <script type="text/javascript" src="js/mediarem.js"></script>
+</head>
+<body>
+    <!-- 透明头部添加类名 header-transparent -->
+    <!-- iOS透明头部添加类名 header-transparent-top -->
+    <header class="header">
+        <h1>券核销</h1>
+        <i class="ab hd-lge">En</i>
+        <i class="ab hd-rtn"><a href="###">退出</a></i>
+    </header>
+    <!--  lizard固定结构-->
+	<div class="main">
+		<div class="main-frame">
+			<div class="main-viewport">
+                <!-- 主要内容开始 -->
+                <div class="track-main">
+                	<section class="tekets-insert">
+                        <ol class="tikets-number mb20">
+                            <li>
+                                <div class="number"><span>券号1</span><input type="text" placeholder="请输入券号" /></div>
+                                <!-- <p class="false txt-red">该券不在有效期内(2016.01.03-2016.05.02)</p> -->
+                            </li>
+                            <li class="false-notice">
+                                <i class="ico-remove"></i>
+                                <i class="ico-close"></i>
+                                <div class="number"><span>券号1</span><input type="text" placeholder="请输入券号" /></div>
+                                <p class="false txt-red">该券不在有效期内(2016.01.03-2016.05.02)</p>
+                            </li>
+                            <li class="false-notice">
+                                <i class="ico-remove"></i>
+                                <!-- <i class="ico-close"></i> -->
+                                <div class="number"><span>券号1</span><input type="text" placeholder="请输入券号" /></div>
+                                <p class="false txt-red">该券不适用于本商户</p>
+                            </li>
+                            <li><a href="javascript:;">+添加券</a></li>
+                        </ol>
+                        <div class="login-password login-submit"><a class="base log-sub">提交</a></div>
+                    </section>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+	<!-- 底部菜单栏 -->
+	<footer class="bottom-menu">
+		<ul class="clearfix">
+			<li class="fee"><i class="ico"></i><span>券号录入</span></li>
+			<li class="photo"><i class="ico ico-photo"></i><span>扫码</span></li>
+			<li class="peaking"><i class="ico ico-peaking"></i><span>历史</span></li>
+		</ul>
+	</footer>
+
+	<!-- *********************************遮罩层***************************************** -->
+    <div class="track-pop-mask" style="display:none;"></div>
+    <!-- *******弹层********** -->
+
+</body>
+</html>

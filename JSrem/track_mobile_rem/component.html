@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>常用组建库汇总</title>
+	<link rel="stylesheet" href="http://webresource.c-ctrip.com/styles/h5/common/main.css">
+	<link rel="stylesheet" type="text/css" href="css/track_mobile.css">
+	<script type="text/javascript" src="js/mediarem.js"></script>
+	<style type="text/css">
+		.compontents-base{
+			width:90%;
+			margin:0 auto;
+		}
+		.compontents-base>h2{
+			background-color:
+			purple;font-size:18px;
+			line-height: 30px;
+			margin-top: 15px;
+			color:orange;
+		}
+		.compontents-base>ul{/*background-color: pink;*/}
+		.compontents-base>ul>li{
+			list-style: none;
+			float: left;
+			position: relative;
+			width:8%;
+			height:100px;
+			border: 1px solid pink;
+		}
+		.compontents-base  .pop-base-all-style .pop{
+			position: relative;
+			left:0;
+			top:0;
+			float: left;
+			margin:5px;
+			transform:translate(0);
+		}
+		.compontents-base-btn .btn-all>li{
+			float: left;
+			min-height:30px;
+			margin:5px 10px;
+		}
+		.compontents-base-pop{
+			background-color:rgba(0,0,0,.5);
+		}
+	</style>
+</head>
+<body>
+
+	<!-- ***********************************按钮和ico样式汇总 *****************************-->
+	<div class="compontents-base compontents-base-ico">
+		<h2>常用ico图标一览如下</h2>
+		<ul class="clearfix">
+			<li><div class="on-off"><i class="fold fold-green"></i></div></li>
+			<li><div class="on-off"><i class="fold fold-gray"></i></div></li>
+			<li><div class="on-off"><i class="open open-green"></i></div></li>
+			<li><div class="on-off"><i class="open open-gray"></i></div></li>
+			<li style="background-color: #ccc;"><i class="lights"></i></li>
+			<li style="background-color: #ccc;"><i class="lights lights-close "></i></li>
+			<li><i class="wait"></i></li>
+			<li><i class="ico-remove"></i></li>
+			<li><i class="ico-close"></i></li>
+			<li><i class="ico-sorry"></i></li>
+			<li><i class="ico-sorry-gray"></i></li>
+			<li><i class="close-shop"></i></li>
+			<li><i class="track-sucess"></i></li>
+			<li><i class="track-default"></i></li>
+			<li style="background-color: #ccc;"><i class="ico-back"></i></li>
+			<li><i class="ico"></i></li>
+			<li style="background-color: #ccc;"><i class="ico ico-photo"></i></li>
+			<li><i class="ico ico-peaking"></i></li>
+			<li><i class="select"></i></li>
+			<li><i class="i-loading"><img src="http://pic.c-ctrip.com/distribution/track/wait.gif" class="loadding"></i></li>
+			<li><i class=""></i></li>
+			<li><i class=""></i></li>
+			<li><i class=""></i></li>
+			<li><i class=""></i></li>
+			<li><i class=""></i></li>
+			<li><i class=""></i></li>
+			<li><i class=""></i></li>
+			<li><i class=""></i></li>
+			<li><i class=""></i></li>
+			<li><i class=""></i></li>
+		</ul>
+	</div>
+	<!-- ***********************************btn样式汇总 *****************************-->
+	<div class="compontents-base compontents-base-btn">
+		<h2>常用btn按钮样式一览如下</h2>
+		<ol class="btn-all clearfix">
+			<li><a class="btn btn-green">机票订单</a></li>
+			<li><div class="more-info"><a href="javascript:;" class="more">更多信息</a>&gt;</div></li>
+			<li style="width:250px;"><div class="login-password login-submit"><a class="base log-next">重新扫码</a></div></li>
+			<li style="width:250px;"><div class="login-password login-submit"><a class="base log-sub">重试</a></div></li>
+			<li><span class="more-info"><a href="javascript:;" class="more">更多规则</a>&gt;</span></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ol>
+	</div>
+	<!-- ***********************************pop弹层汇总 *****************************-->
+	<div class="compontents-base compontents-base-pop">
+		<h2>常用pop弹层效果</h2>
+		<div class="pop-base-all-style clearfix">
+
+
+			<!-- *******遮罩层******** -->
+		    <div class="track-pop-mask dn"></div>
+
+
+		    <!-- *******************弹层********************** -->
+
+		    <!-- 取消历史记录弹层 -->
+		    <div class="pop pop-clear" style="display:block;">
+		        <div class="pop-hd">
+		        	<div class="line-item-textarea-mask"></div>
+		            <div class="clear-oder-tl"><h2>确定取消该条记录吗？</h2><span>请选择取消原因</span></div>
+		            <dl class="clear-oder-reason">
+		                <dd><p class="answer">原因一这是原因一</p></dd>
+		                <dd><p class="answer">原因一这是原因一</p><i class="select"></i></dd>
+		                <dd><p class="answer shand">原因一这是原因一</p></dd>
+		                <dd><p class="answer">原因一这是原因一</p></dd>
+		                <!-- <dd style="border: 0;"><p class="answer textGradient">原因一这是原因一</p></dd> -->
+		                <dd style="border: 0;"><p class="answer">原因一这是原因一</p></dd>
+		            </dl>
+		        </div>
+		        <div class="pop-md">
+		            <ul class="confirm clearfix">
+		                <li><a href="javascript:;">手滑错了</a></li>
+		                <li><a href="javascript:;" class="shand">取消并提交</a></li>
+		            </ul>
+		        </div>
+		    </div>
+
+    		<!-- 取消历史记录弹层 -->
+		    <div class="pop pop-more">
+		        <div class="pop-top">更多规则<div class="on-off"><i class="close-shop"></i></div></div>
+		        <div class="pop-hd">
+		            <ol class="more-rule">
+		                <li><p>1.支持多种优惠券打包核销，但前折券及后返券每种只能选择一张</p></li>
+		                <li><p>2.赠品及现金抵用券不限制交易数量</p></li>
+		                <li><p>3.若多券同时核销，不同类目的阶梯返现需拆分订单金额</p></li>
+		                <li><p>4.若同时存在前折及后返优惠券，先前折再后返</p></li>
+		                <li><p>5.使用优惠券时，用户需出示有效凭证</p></li>
+		                <li><p>6.过期优惠券不可使用</p></li>
+		                <li><p>7.优惠券币种需与订单金额币种保持一致</p></li>
+		            </ol>
+		        </div>
+		        <!-- <div class="pop-md">
+		            <ul class="confirm clearfix">
+		                <li><a href="javascript:;">手滑错了</a></li>
+		                <li><a href="javascript:;" class="shand">取消并提交</a></li>
+		            </ul>
+		        </div> -->
+		    </div>
+
+		    <!-- 选择分店地址弹层 -->
+		    <div class="pop pop-clear" style="display:block;">
+		        <div class="on-off"><i class="close-shop"></i></div>
+		        <div class="pop-hd">
+		            <div class="clear-oder-tl"><h2>选择门店（周大福）</h2><!-- <span>请选择取消原因</span> --></div>
+		            <dl class="clear-oder-reason">
+		                <dd><p class="answer">襄阳第一分店</p></dd>
+		                <dd><p class="answer">旺角第三分店</p></dd>
+		                <dd><p class="answer shand">枣阳第二分店</p><i class="select"></i></dd>
+		                <dd><p class="answer">新市分店</p></dd>
+		                <dd><p class="answer">新市分店</p></dd>
+		                <dd><p class="answer">新市分店</p></dd>
+		                <dd style="box-shadow: 0 0 0 #fff;"><p class="answer textGradient">湖北分店</p></dd>
+		            </dl>
+		        </div>
+		        <!-- <div class="pop-md">
+		            <ul class="confirm clearfix">
+		                <li><a href="javascript:;">手滑错了</a></li>
+		                <li><a href="javascript:;" class="shand">取消并提交</a></li>
+		            </ul>
+		        </div> -->
+		    </div>
+
+		    <!-- 退出弹层 -->
+		    <div class="pop pop-return" style="display:block;">
+		    	<div class="pop-hd">
+		    		<p>你确定要退出了吗？</p>
+		    		<p>不要小蜜了吗？</p>
+		    	</div>
+		    	<div class="pop-md">
+		    		<ul class="confirm clearfix">
+		    			<li><a href="javascript:;" class="shand">点错了</a></li>
+		    			<li><a href="javascript:;" class="shand">残忍离开</a></li>
+		    		</ul>
+		    	</div>
+		    </div>
+
+		    <!-- 提交订单金额 -->
+		    <div class="pop pop-return pop-insert-submit">
+		        <div class="pop-md">
+		            <i class="ico-close oder-close"></i>
+		            <i class="i-loading"><img src="http://pic.c-ctrip.com/distribution/track/wait.gif" class="loadding"></i>
+		            <dl class="sub-oder">
+		                <dd class="money clearfix">
+		                    <span class="money-l money-l-number">数量(件)</span>
+		                    <input type="text" class="money-r" placeholder="请输入要享受优惠的件数">
+		                </dd>
+		                <dd class="money clearfix">
+		                    <span class="money-l">订单金额<span>HDK</span></span>
+		                    <input type="text" class="money-r" placeholder="请输入订单金额（HKD）">
+		                </dd>
+		                <dd class="money money-commit clearfix">
+		                    <span class="money-l">订单金额<span>HDK</span></span>
+		                    <input type="text" class="money-r" placeholder="--">
+		                </dd>
+		                <dd class="commit">
+		                    <a href="javascript:;">确定提交</a>
+		                    <a href="javascript:;" class="disabled">确定提交</a>
+		                </dd>
+		            </dl>
+		        </div>
+		    </div>
+
+		    <!-- 提交等待状态 -->
+		    <div class="pop pop-return">
+		        <div class="pop-md pop-flex">
+		            <div class="sub-wait">
+		                <i class="wait"></i>
+		                 <p class="waiting">提交中...</p>
+		            </div>
+		        </div>
+    		</div>
+
+
+
+
+    		
+		</div>
+    </div>
+
+</body>
+</html>
+
+
+

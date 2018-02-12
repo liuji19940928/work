@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection"content="telephone=no, email=no" />
+	<title>扫码之使用券（券核销）</title>
+	<link rel="stylesheet" href="http://webresource.c-ctrip.com/styles/h5/common/main.css">
+	<link rel="stylesheet" href="css/track_mobile.css">
+    <script type="text/javascript" src="js/jquery-1.9.0.js"></script>
+    <script type="text/javascript" src="js/test.js"></script>
+    <script type="text/javascript" src="js/mediarem.js"></script>
+</head>
+<body>
+    <!-- 透明头部添加类名 header-transparent -->
+    <!-- iOS透明头部添加类名 header-transparent-top -->
+    <header class="header">
+        <h1>券核销</h1>
+        <i class="ico-back"></i>
+        <!-- <i class="hd-rtn"><a href="###">退出</a></i> -->
+    </header>
+    <!--  lizard固定结构-->
+	<div class="main">
+		<div class="main-frame">
+			<div class="main-viewport">
+                <!-- 主要内容开始 -->
+                <div class="track-main">
+                	<section class="tekets-insert">
+                        <article class="store-name">
+                            <div class="logo-shop"><img src=""></div>
+                            <div class="logo-name">
+                                <p>周大福（襄阳店）</p>
+                                <p>Chow Tai Fook</p>
+                            </div>
+                        </article>
+                        <!--券列表及其规则 -->
+                        <article class="coupon-list">
+                            <h3 class="introduce">
+                                前折券和后返券每种只能选择一张
+                                <span class="more-info"><a href="javascript:;" class="more">更多规则</a>&gt;</span>
+                            </h3>
+                            <ul class="coupon-use">
+                                <li>
+                                    <div class="select-coupon">
+                                        <i class="track-sucess"></i>
+                                    </div>
+                                    <dl class="specific">
+                                        <dt>后返－现金抵用券（5元）</dt>
+                                        <dd><span>使用期限</span>2016.01.08-2016.05.21</dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <div class="select-coupon">
+                                        <i class="track-default"></i>
+                                    </div>
+                                    <dl class="specific">
+                                        <dt>后返－现金抵用券（5元）</dt>
+                                        <dd><span>使用期限</span>2016.01.08-2016.05.21</dd>
+                                    </dl>
+                                </li>
+                            </ul>
+                            <!-- 单券使用 -->
+                            <ul class="coupon-use coupon-use-rest">
+                                <li>
+                                    <dl class="specific">
+                                        <dt>后返－现金抵用券（5元）</dt>
+                                        <dd><span>使用期限</span>2016.01.08-2016.05.21</dd>
+                                    </dl>
+                                    <div class="use-this">使用</div>
+                                </li>
+                                <li>
+                                    <dl class="specific">
+                                        <dt>后返－现金抵用券（5元）</dt>
+                                        <dd><span>使用期限</span>2016.01.08-2016.05.21</dd>
+                                    </dl>
+                                    <div class="use-this">使用</div>
+                                </li>
+                                <li>
+                                    <dl class="specific">
+                                        <dt>后返－现金抵用券（5元）</dt>
+                                        <dd><span>使用期限</span>2016.01.08-2016.05.21</dd>
+                                    </dl>
+                                    <div class="use-this">使用</div>
+                                </li>
+                            </ul>
+                        </article>
+                    </section>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+	<!-- 底部菜单栏 -->
+    <!-- 底部菜单栏1 -->
+	<!-- <footer class="tikets-menu">
+		<ul class="clearfix">
+			<li><span>添加-扫码</span></li>
+			<li><span>添加-券号</span></li>
+			<li><strong>去核销</strong></li>
+		</ul>
+	</footer> -->
+    <!-- 底部菜单栏2 -->
+    <footer class="tikets-menu">
+        <ul class="go-sales">
+            <li class="ch-hx"><strong>确定使用</strong></li>
+        </ul>
+    </footer>
+
+	<!-- *********************************遮罩层***************************************** -->
+    <div class="track-pop-mask"></div>
+    <!-- *******弹层********** -->
+    <!-- 取消历史记录弹层 -->
+    <div class="pop pop-more">
+        <div class="pop-top">更多规则<div class="on-off"><i class="close-shop"></i></div></div>
+        <div class="pop-hd">
+            <ol class="more-rule">
+                <li><p>1.支持多种优惠券打包核销，但前折券及后返券每种只能选择一张</p></li>
+                <li><p>2.赠品及现金抵用券不限制交易数量</p></li>
+                <li><p>3.若多券同时核销，不同类目的阶梯返现需拆分订单金额</p></li>
+                <li><p>4.若同时存在前折及后返优惠券，先前折再后返</p></li>
+                <li><p>5.使用优惠券时，用户需出示有效凭证</p></li>
+                <li><p>6.过期优惠券不可使用</p></li>
+                <li><p>7.优惠券币种需与订单金额币种保持一致</p></li>
+            </ol>
+        </div>
+        <!-- <div class="pop-md">
+            <ul class="confirm clearfix">
+                <li><a href="javascript:;">手滑错了</a></li>
+                <li><a href="javascript:;" class="shand">取消并提交</a></li>
+            </ul>
+        </div> -->
+    </div>
+</body>
+</html>

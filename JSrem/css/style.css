@@ -1,0 +1,42 @@
+@charset "UTF-8";
+.klbox {
+  margin: 0.75rem 0.25rem 0;
+  font-size: 0.7rem; }
+
+.klbox-info > li {
+  position: relative;
+  margin-top: 0.25rem; }
+
+.klbox-info-tl {
+  position: absolute;
+  height: 1.5rem;
+  width: 3rem;
+  left: 0;
+  top: 0;
+  line-height: 1.5rem; }
+
+.klbox-info-detail {
+  margin-left: 3rem; }
+
+.klbox-info-detail .base-info {
+  height: 1.5rem;
+  width: 100%;
+  padding-left: 0.25rem;
+  box-sizing: border-box; }
+
+.klcontain-img {
+  width: 15rem;
+  margin: 0.5rem auto; }
+  .klcontain-img > img {
+    width: 100%; }
+
+.klcontain2 {
+  overflow: hidden; }
+  .klcontain2-img {
+    /*可以不用百分比*/
+    width: 8rem;
+    float: left; }
+    .klcontain2-img > img {
+      width: 100%; }
+
+/*# sourceMappingURL=style.css.map */

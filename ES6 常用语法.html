@@ -1,0 +1,247 @@
+<!DOCTYPE html><html><head><title>ES6 常用语法</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;}
+
+.note-content .hljs {display: block; overflow-x: auto; padding: 0.5em; background: #3f3f3f; color: #dcdcdc;}
+.note-content .hljs-keyword, .note-content 
+.hljs-selector-tag, .note-content 
+.hljs-tag {color: #e3ceab;}
+.note-content .hljs-template-tag {color: #dcdcdc;}
+.note-content .hljs-number {color: #8cd0d3;}
+.note-content .hljs-variable, .note-content 
+.hljs-template-variable, .note-content 
+.hljs-attribute {color: #efdcbc;}
+.note-content .hljs-literal {color: #efefaf;}
+.note-content .hljs-subst {color: #8f8f8f;}
+.note-content .hljs-title, .note-content 
+.hljs-name, .note-content 
+.hljs-selector-id, .note-content 
+.hljs-selector-class, .note-content 
+.hljs-section, .note-content 
+.hljs-type {color: #efef8f;}
+.note-content .hljs-symbol, .note-content 
+.hljs-bullet, .note-content 
+.hljs-link {color: #dca3a3;}
+.note-content .hljs-deletion, .note-content 
+.hljs-string, .note-content 
+.hljs-built_in, .note-content 
+.hljs-builtin-name {color: #cc9393;}
+.note-content .hljs-addition, .note-content 
+.hljs-comment, .note-content 
+.hljs-quote, .note-content 
+.hljs-meta {color: #7f9f7f;}
+.note-content .hljs-emphasis {font-style: italic;}
+.note-content .hljs-strong {font-weight: bold;}
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<div><div class="toc"><div class="toc">
+<ul>
+<li><ul>
+<li><a href="#es6-常用语法">ES6 常用语法</a><ul>
+<li><a href="#let-const">let, const</a></li>
+<li><a href="#class-extends-super">class, extends, super</a></li>
+<li><a href="#箭头函数">箭头函数</a></li>
+<li><a href="#模板字符串">模板字符串</a></li>
+<li><a href="#其他特殊语法">其他特殊语法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<h2 id="es6-常用语法">ES6 常用语法</h2>
+
+<blockquote>
+  <p>ECMAScript 6（简称ES6）是JavaScript语言的新一代标准。因为当前版本的ES6是在2015年发布的，所以又称ECMAScript 2015。 <br>
+  <strong>注意: ES6部分语法目前还不被浏览器支持,需要使用Babel进行转码。</strong></p>
+</blockquote>
+
+
+
+<h3 id="let-const">let, const</h3>
+
+<blockquote>
+  <p>let和const用途与var类似，都是用来声明变量的。 <br>
+  let声明的变量可以改变，值和类型都可以改变，没有限制，和var使用类似，但是<strong>具有块级作用域</strong>。 <br>
+  const声明的变量不能再改变值，通常也<strong>称作常量</strong>，const一旦声明，就必须立即初始化，不能留到以后赋值。</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-keyword">let</span> name = <span class="hljs-string">'zs'</span>
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) {
+</div><div class="hljs-line">    <span class="hljs-keyword">let</span> name = <span class="hljs-string">'ls'</span>
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(name)  <span class="hljs-comment">//ls</span>
+</div><div class="hljs-line">    <span class="hljs-keyword">break</span>
+</div><div class="hljs-line">}
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(name)  <span class="hljs-comment">//zs</span>
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-keyword">const</span> a ;<span class="hljs-comment">//报错,一旦声明变量，应该立即赋值</span>
+</div><div class="hljs-line"><span class="hljs-keyword">const</span> b = <span class="hljs-number">2</span>;
+</div><div class="hljs-line">b = <span class="hljs-number">3</span> <span class="hljs-comment">//报错，因为定义常量之后不能成重新赋值</span>
+</div></code></pre>
+
+
+
+<h3 id="class-extends-super">class, extends, super</h3>
+
+<blockquote>
+  <p><strong>class</strong>关键字用来定义类,类似于ES5构造函数</p>
+  
+  <p><strong>extends</strong>关键字实现继承</p>
+  
+  <p><strong>super</strong>关键字，指代父类的实例（即父类的this对象）</p>
+  
+  <p>子类必须在<strong>constructor</strong>方法中调用<strong>super</strong>方法，否则新建实例时会报错。这是因为子类没有自己的<strong>this</strong>对象，而是继承父类的<strong>this</strong>对象，然后对其进行加工。如果不调用<strong>super</strong>方法，子类就得不到<strong>this</strong>对象。</p>
+  
+  <p><strong>ES6的继承机制，实质是先创造父类的实例对象this（所以必须先调用super方法），然后再用子类的构造函数修改this</strong></p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="hljs scala"><div class="hljs-line"><span class="hljs-comment">// 定义一个类</span>
+</div><div class="hljs-line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span> </span>{
+</div><div class="hljs-line">    <span class="hljs-comment">// 构造函数</span>
+</div><div class="hljs-line">    constructor(){
+</div><div class="hljs-line">        <span class="hljs-comment">// 实例属性</span>
+</div><div class="hljs-line">        <span class="hljs-keyword">this</span>.<span class="hljs-keyword">type</span> = <span class="hljs-symbol">'anima</span>l'
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-comment">// 实例方法</span>
+</div><div class="hljs-line">    says(say){
+</div><div class="hljs-line">        console.log(<span class="hljs-keyword">this</span>.<span class="hljs-keyword">type</span> + ' says ' + say)
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">}
+</div><div class="hljs-line">
+</div><div class="hljs-line">let animal = <span class="hljs-keyword">new</span> <span class="hljs-type">Animal</span>()
+</div><div class="hljs-line">animal.says(<span class="hljs-symbol">'hell</span>o') <span class="hljs-comment">//animal says hello</span>
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">// 定义一个类继承于另一个父类</span>
+</div><div class="hljs-line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Cat</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Animal</span> </span>{
+</div><div class="hljs-line">    constructor(){
+</div><div class="hljs-line">        <span class="hljs-keyword">super</span>()
+</div><div class="hljs-line">        <span class="hljs-keyword">this</span>.<span class="hljs-keyword">type</span> = <span class="hljs-symbol">'ca</span>t'
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">}
+</div><div class="hljs-line">
+</div><div class="hljs-line">let cat = <span class="hljs-keyword">new</span> <span class="hljs-type">Cat</span>()
+</div><div class="hljs-line">cat.says(<span class="hljs-symbol">'hell</span>o') <span class="hljs-comment">//cat says hello</span>
+</div></code></pre>
+
+
+
+<h3 id="箭头函数">箭头函数</h3>
+
+<blockquote>
+  <p>箭头函数没有自己的作用域</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment">// ES5写法</span>
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x, y</span>) </span>{ 
+</div><div class="hljs-line">    x++;
+</div><div class="hljs-line">    y--;
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> x + y;
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-comment">// 箭头函数改写</span>
+</div><div class="hljs-line">(x, y) =&gt; {x++; y--; <span class="hljs-keyword">return</span> x+y}
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">// ES5写法</span>
+</div><div class="hljs-line"><span class="hljs-comment">// 没有参数</span>
+</div><div class="hljs-line">[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>].map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+</div><div class="hljs-line">})
+</div><div class="hljs-line"><span class="hljs-comment">// 改写</span>
+</div><div class="hljs-line">[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>].map(<span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span>{<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>})或者[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>].map(<span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span><span class="hljs-number">1</span>)
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">// 一个参数</span>
+</div><div class="hljs-line">[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>].map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">v</span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> v + <span class="hljs-number">1</span>;
+</div><div class="hljs-line">})
+</div><div class="hljs-line"><span class="hljs-comment">// 箭头函数改写</span>
+</div><div class="hljs-line">[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>].map(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span>{<span class="hljs-keyword">return</span> v + <span class="hljs-number">1</span>});
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">// 一个参数</span>
+</div><div class="hljs-line">[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>].map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">v,i</span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> v + i;
+</div><div class="hljs-line">})
+</div><div class="hljs-line"><span class="hljs-comment">// 箭头函数改写</span>
+</div><div class="hljs-line">[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>].map(<span class="hljs-function">(<span class="hljs-params">v,i</span>) =&gt;</span>{<span class="hljs-keyword">return</span> v + i});
+</div><div class="hljs-line">
+</div><div class="hljs-line">---------------------------------------
+</div><div class="hljs-line"><span class="hljs-comment">// 箭头函数没有自己的作用预</span>
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> obj = {
+</div><div class="hljs-line">    <span class="hljs-attr">name</span>:<span class="hljs-string">'zs'</span>,
+</div><div class="hljs-line">    <span class="hljs-attr">say</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">            <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name);<span class="hljs-comment">// 报错,此处this是window</span>
+</div><div class="hljs-line">        },<span class="hljs-number">0</span>)
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">}
+</div><div class="hljs-line">obj.say();
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">// 箭头函数改写</span>
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> obj = {
+</div><div class="hljs-line">    <span class="hljs-attr">name</span>:<span class="hljs-string">'zs'</span>,
+</div><div class="hljs-line">    <span class="hljs-attr">say</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">        setTimeout(<span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span>{
+</div><div class="hljs-line">            <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name);<span class="hljs-comment">// zs 箭头函数没有自己的作用预,延用上级作用预,this依旧是调用say方法的对象</span>
+</div><div class="hljs-line">        },<span class="hljs-number">0</span>)
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">}
+</div><div class="hljs-line">obj.say();
+</div></code></pre>
+
+
+
+<h3 id="模板字符串">模板字符串</h3>
+
+<blockquote>
+  <p>简化字符串拼接</p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-keyword">var</span> name = <span class="hljs-string">'zs'</span>;
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'我的名字叫'</span> + name);
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">// 模板字符串 `是tab键上面那个按钮</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">`我的名字叫<span class="hljs-subst">${name}</span>`</span>);
+</div></code></pre>
+
+
+
+<h3 id="其他特殊语法">其他特殊语法</h3>
+
+<blockquote>
+  <p>对象中的属性名称和属性值如果同名，可以简写 <br>
+  对象中的方法可以省略<strong>function</strong></p>
+</blockquote>
+
+
+
+<pre class="prettyprint"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-keyword">var</span> name = <span class="hljs-string">'zs'</span>;
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> obj = {
+</div><div class="hljs-line">    <span class="hljs-attr">name</span>:name,
+</div><div class="hljs-line">    <span class="hljs-attr">say</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'我的名字是'</span> + <span class="hljs-keyword">this</span>.name)
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">}
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">// ES6</span>
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> name = <span class="hljs-string">'zs'</span>;
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> obj = {
+</div><div class="hljs-line">    name, <span class="hljs-comment">// 属性名和属性值同名</span>
+</div><div class="hljs-line">    say(){ <span class="hljs-comment">// 省略:function</span>
+</div><div class="hljs-line">        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`我的名字是<span class="hljs-subst">${<span class="hljs-keyword">this</span>.name}</span>`</span>)
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">}
+</div></code></pre></div></body></html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection"content="telephone=no, email=no" />
+	<title>加载失败等待失败（前往页面标题）</title>
+	<link rel="stylesheet" href="http://webresource.c-ctrip.com/styles/h5/common/main.css">
+	<link rel="stylesheet" href="css/track_mobile.css">
+    <script type="text/javascript" src="js/jquery-1.9.0.js"></script>
+    <script type="text/javascript" src="js/test.js"></script>
+    <script type="text/javascript" src="js/mediarem.js"></script>
+</head>
+<body>
+    <!-- 透明头部添加类名 header-transparent -->
+    <!-- iOS透明头部添加类名 header-transparent-top -->
+    <header class="header">
+        <h1>前往页面标题</h1>
+        <i class="ico-back"></i>
+        <!-- <i class="hd-rtn"><a href="###">退出</a></i> -->
+    </header>
+    <!--  lizard固定结构-->
+	<div class="main">
+		<div class="main-frame">
+			<div class="main-viewport">
+                <!-- 主要内容开始 -->
+                <div class="track-main">
+                	<section class="tekets-insert">
+                        <div class="load-error-wait">
+                            <i class="ico-sorry-gray"></i>
+                            <aside class="retry">网络不给力，请重试</aside>
+                        </div>
+                        <!-- 查看记录 -->
+                        <div class="login-password login-submit"><a class="base log-sub">重试</a></div>
+                    </section>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+	<!-- 底部菜单栏 -->
+    <!-- 底部菜单栏1 -->
+	<!-- <footer class="tikets-menu">
+		<ul class="clearfix">
+			<li><span>添加-扫码</span></li>
+			<li><span>添加-券号</span></li>
+			<li><strong>去核销</strong></li>
+		</ul>
+	</footer> -->
+    <!-- 底部菜单栏2 -->
+    <!-- <footer class="tikets-menu">
+        <ul class="go-sales">
+            <li class="ch-hx"><strong>去核销</strong></li>
+        </ul>
+    </footer> -->
+
+	<!-- *********************************遮罩层***************************************** -->
+    <div class="track-pop-mask" style="display: none;"></div>
+    <!-- *******弹层********** -->
+</body>
+</html>

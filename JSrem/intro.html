@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js+rem说明</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/intro.css">
+</head>
+<body>
+    <div class="contain">
+        <h2 class="contain-tl mt10 txt-center">js配合rem实现移动端的适配问题</h2>
+        <div class="contain-intro mt10">
+            <div class="contain-intro-base"><span class="base-item">时间</span><span>2016/12/22</span></div>
+            <div class="contain-intro-base"><span class="base-item">作者</span><span>klxin</span></div>
+            <div class="contain-intro-base"><span class="base-item">主题</span><span>探讨rem适配移动端</span></div>
+        </div>
+        <div class="contain-article">
+            <h2 class="solve-ways">1.&nbsp;&nbsp;rem+media用媒体查询来区间范围内更改,已使用不在详细说明</h2>
+            <div class="contain-article-inner">
+                <p class="intro-tl">下面是我直接在工具复制过来的现成rem换算适配代码↓（设计稿宽度：640，字体值：20）</p>
+                <p class="prettyprint">
+                    @media only screen and (max-width:1920px){ <br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;html{font-size:130px;}<br/>
+                     }
+                    @media only screen and (max-width:768px){<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;html{font-size:125px;}<br/>
+                    }<br/>
+                    @media only screen and (max-width:640px){<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;html{font-size:120px;}<br/>
+                    }<br/>
+                    @media only screen and (max-width:533px){<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;html{font-size:115px;}<br/>
+                    }<br/>
+                    @media only screen and (max-width:480px){
+                        &nbsp;&nbsp;&nbsp;&nbsp;html{font-size:110px;}<br/>
+                    }<br/>
+                    @media only screen and (max-width:375px){
+                        &nbsp;&nbsp;&nbsp;&nbsp;html{font-size:105px;}<br/>
+                    }<br/>
+                    @media only screen and (max-width:320px){<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;html{font-size:100px;}<br/>
+                    }<br/>
+                </p>
+                <p class="intro-tl">优点不依靠任何依赖，区间查询适配等缺点略</p>
+            </div>
+        </div>
+        <div class="contain-article mt10">
+            <h2 class="solve-ways">2.&nbsp;&nbsp;rem+js通过动态改变根元素的font-size来适配移动端</h2>
+            <div class="contain-article-inner">
+                <p class="intro-tl">首先获取屏幕的宽度，根据屏幕宽度不同改变html的font-size大小，进而配合rem来实现移动端的适配，先说明原理如下</p>
+                <div class="prettyprint">
+                    <p class="intro-tl txt-red">设计图尺寸/自定义font=屏幕宽度/屏幕对应的font</p>
+                    <p class="intro-tl mt10">屏幕对应的font=屏幕宽度*自定义font/设计图尺寸</p>
+                    <p class="intro-tl mt10">比如当设计稿尺寸为640px　　设置640px对应的 html的font-size=40px (备注可以任意设置)</p>
+                    <p class="intro-tl">屏幕对应的font=屏幕宽度*40/640=0.0625*clientWidth</p>
+                    <p class="intro-tl mt10">当屏幕宽度为320时候即如下</p>
+                    <p class="intro-tl">屏幕对应的font=320*40/640=20</p>
+                    <p class="intro-tl mt10">当屏幕宽度为x时候即如下,x指的是屏幕宽度(所以屏幕变动，内容会根据等比缩放)</p>
+                    <p class="intro-tl">屏幕对应的font=x*40/640=20</p>
+                    <p class="intro-tl mt10">屏幕对应的font可以根据clientWidth改变而改变，即在x=640中1rem=40px;即在x=320中1rem=20px;</p>
+                </div>
+                <p class="intro-tl mt10">优点：会根据屏幕等比例缩放来适配移动端不同的手机等正在发现中..<a href="test.html">缩放的详细情况，及图片放大缩小请点击</a></p>
+                <p class="intro-tl mt10">优点：可以直接赋值宽度不用用百分比等方式自己会一直适配宽度</p>
+                <p class="intro-tl mt10">缺点：1.需要首次确定设计图尺寸，以便于算出比例</p>
+                <p class="intro-tl mt10">缺点：2.css页面书写直接用 设计尺寸/初始font 计算不是很方便（当然初始font可以设置为10或100）</p>
+                <p class="intro-tl mt10">缺点：3.等正在发现的问题..<a href="test.html">缩放的详细情况，及图片放大缩小请点击</a></p>
+            </div>
+            
+        </div>
+    </div>
+    
+</body>
+</html>
