@@ -1,0 +1,212 @@
+1.去除滚动条
+html{
+    overflow:hidden;
+    /*overflow-x:hidder;*/
+    /*overflow-y:hidder;*/
+}
+
+
+
+
+2.渐变
+{background: linear-gradient(red, blue);}  /*默认从上至下*/
+{background: linear-gradient(to right ,red, blue);}
+
+
+
+
+3.表格
+border="0" cellspacing="1" cellpadding="4" bgcolor="#ccc"
+border	      	表格边框
+cellpadding   	规定单元边沿与其内容之间的空白
+cellspacing   	规定单元之间的空间
+bgcolor	      	表格背景颜色
+align		表格对齐方式
+
+colspan="2"	横跨几列
+rowspan="2"	跨行
+
+
+
+
+4.Perfect ScrollBar
+
+<style> #Demo { position： ‘relative’; } </style>
+<div id=‘Demo’><div>... </div></div>
+
+$(‘#Demo’).perfectScrollbar();
+
+样式position定位  要有height  
+
+
+
+
+
+5.事件监听  封装
+/* 
+ * addEventHandler:监听Dom元素的事件 
+ * removeEventHandler:移除Dom元素的事件 
+ *
+ * target：监听对象 
+ * type：监听函数类型，如click,mouseover 
+ * func：监听函数 
+ */
+function addEventHandler(target,type,func){ 
+ if(target.addEventListener){ 
+  //监听IE9，谷歌和火狐 
+  target.addEventListener(type, func, false); 
+ }else if(target.attachEvent){ 
+  target.attachEvent("on" + type, func); 
+ }else{ 
+  target["on" + type] = func; 
+ } 
+} 
+
+function removeEventHandler(target, type, func) { 
+ if (target.removeEventListener){ 
+  //监听IE9，谷歌和火狐 
+  target.removeEventListener(type, func, false); 
+ } else if (target.detachEvent){ 
+  target.detachEvent("on" + type, func); 
+ }else { 
+  delete target["on" + type]; 
+ } 
+} 
+
+
+
+
+
+
+
+
+
+6.flex布局 ( http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html )
+①父盒子属性 display:flex
+flex-direction
+flex-wrap
+flex-flow
+justify-content
+align-items
+align-content
+
+flex-direction	决定主轴的方向（即项目的排列方向）。
+flex-direction: row | row-reverse | column | column-reverse;
+	row（默认值）：主轴为水平方向，起点在左端。
+	row-reverse：主轴为水平方向，起点在右端。
+	column：主轴为垂直方向，起点在上沿。
+	column-reverse：主轴为垂直方向，起点在下沿。
+
+flex-wrap	默认项目都排在一条线上。flex-wrap属性定义如果一条轴线排不下，如何换行。
+flex-wrap: nowrap | wrap | wrap-reverse;
+	nowrap（默认）：不换行。
+	wrap：换行，第一行在上方。
+	wrap-reverse：换行，第一行在下方。
+
+flex-flow	是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap
+flex-flow: <flex-direction> || <flex-wrap>;
+
+justify-content	定义了项目在主轴上的对齐方式
+justify-content: flex-start | flex-end | center | space-between | space-around;
+可能取5个值，具体对齐方式与轴的方向有关。下面假设主轴为从左到右。
+	flex-start（默认值）：左对齐
+	flex-end：右对齐
+	center： 居中
+	space-between：两端对齐，项目之间的间隔都相等。
+	space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
+
+align-items	定义项目在交叉轴上如何对齐。
+align-items: flex-start | flex-end | center | baseline | stretch;
+可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。
+	flex-start：交叉轴的起点对齐。
+	flex-end：交叉轴的终点对齐。
+	center：交叉轴的中点对齐。
+	baseline: 项目的第一行文字的基线对齐。
+	stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
+
+align-content	定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。
+align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+	flex-start：与交叉轴的起点对齐。
+	flex-end：与交叉轴的终点对齐。
+	center：与交叉轴的中点对齐。
+	space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。
+	space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
+	stretch（默认值）：轴线占满整个交叉轴。
+
+②子盒子属性
+order
+flex-grow
+flex-shrink
+flex-basis
+flex
+align-self
+
+
+
+
+
+7.研发做的模块 以img形式放入一个div中 （否则 程序员拿到，还要找样式表删掉，这样不太友好）
+  滚动条的调用 放在通用js里
+  有些图片不要用伪类写  放入一个div中用img形式
+  样式切换的图片用background背景图 用类样式来控制切换
+  当有实际的高度的盒子时候，父盒子如果是top:0，bottom:0,窗口小于实现高度的时候，会出现滚动条。
+
+
+
+
+
+
+
+
+
+
+8.react 
+	获取DOM是ReactDOM.findDOMNode(this.refs.***)；
+	而 this.refs.*** 直接取到的是组件，可以直接调用其内部的方法
+
+
+
+
+
+
+
+9.当遇到不换行 超出部分隐藏  文字多出部分显示省略号
+	overflow: hidden;	/*超出部分隐藏*/
+	white-space: nowrap;	/*不换行*/
+	text-overflow: ellipsis;/*文字多出部分显示省略号*/
+	当字数较多时  字体可能会变大  试着加一个display:inline-block;
+
+
+
+
+
+
+10.清除浮动
+.clearfix:after{
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden
+}     /*所有主流浏览器都支持 :after 伪元素。*/ 
+.clearfix{*+height:1%;}/*不知道有什么用处，不加ie7也没有问题*/ 
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+} 
+.clearfix{
+	*zoom:1;
+}     //只针对IE6/7 
+
+
+
+
+
+
+
+
+
