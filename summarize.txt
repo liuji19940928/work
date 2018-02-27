@@ -208,5 +208,18 @@ align-self
 
 
 
+11.  :not(selector) 选择器匹配非指定元素/选择器的每个元素。
+如果点击当前页，可以使用 .active 来设置当期页样式，鼠标悬停可以使用 :hover 选择器来修改样式：
+ul.pagination li a:hover:not(.active) {background-color: #ddd;}
+
+
+
+
+
+
+
+
+
+
 
 
