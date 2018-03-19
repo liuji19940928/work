@@ -1,0 +1,125 @@
+正则 RegExp   regexper.com	http://javascript.ruanyifeng.com/stdlib/regexp.html
+	
+	g : global全文搜索，如不添加搜索到第一个匹配停止
+	i : ignore case 忽略大小写，默认大小写敏感
+	m : multiple lines 多行搜索
+	RegExp.prototype.ignoreCase：返回一个布尔值，表示是否设置了i修饰符。
+	RegExp.prototype.global：返回一个布尔值，表示是否设置了g修饰符。
+	RegExp.prototype.multiline：返回一个布尔值，表示是否设置了m修饰符。
+	
+	var reg = new RegExp('\\bis\\b');
+	var str = He is a boy .This is a dog.Where is she?;
+	str.replace(reg,'IS'); //He IS a boy .This is a dog.Where is she?
+
+	var reg = new RegExp('\\bis\\b','g');
+	var str = He is a boy .This is a dog.Where is she?;
+	str.replace(reg,'IS'); //He IS a boy .This IS a dog.Where IS she?
+
+	'He is a boy.Is he?'.replace(/\bis\b/g,'0'); //He 0 a boy.Is he?
+	'He is a boy.Is he?'.replace(/\bis\b/gi,'0'); //He 0 a boy.0 he?
+
+	\t	水平制表符
+	\v	垂直制表符
+	\n	换行符
+	\r	回车符
+	\0	空字符
+	\f	换页符
+	\cX	与X对应的控制字符（Ctrl+X）
+
+	'a1b2c3d4'.replace(/[abc]/g,'X'); 	//X1X2X3d4
+	'a1b2c3d4'.replace(/[^abc]/g,'X'); 	//aXbXcXXX
+
+	[a-z]表示从a到z的任意字符
+	'a1b2c3d4'.replace(/[a-z]/g,'Q'); 	//Q1Q2Q3Q4
+	'a1b2c3d4ASDGFH'.replace(/[a-zA-Z]/g,'Q'); 	//Q1Q2Q3Q4QQQQQQ
+	'2018-2-27'.replace(/[0-9-]/g,'Q');	//QQQQQQQQQ
+
+	.	[^\r\n]		除了回车符和换行符之外的所有字符
+	\d	[0-9]		数字字符
+	\D	[^0-9]		非数字字符
+	\s	[\t\n\x0B\f\r]	空白符
+	\S	[^\t\n\x0B\f\r]	非空白符
+	\w	[a-zA-Z_0-9]	单词字符（字母，数字，下划线）
+	\W	[^a-zA-Z_0-9]	非单词字符
+	^	开始
+	$	结尾
+	\b	单词边界
+	\B	非单词边界
+
+	? 	出现零次或一次（最多出现一次）
+	+	出现一次或多次（最少出现一次）
+	*	出现零次或多次（任意次）
+	{n}	出现n次
+	{n,m}	出现n到m次
+	{n,}	至少出现n次
+
+	贪婪模式（尽可能多的匹配）
+	'12345678'.replace(/\d{3,6}/g,'X');	//X78
+	非贪婪模式（尽可能少的匹配）量词后加?
+	'12345678'.replace(/\d{3,6}?/g,'X');	//XX78
+
+	分组()	  或|	 反向引用
+	Byron{3}	//Byronnn
+	(Byron){3}	//ByronByronByron
+	'a1b2c3d4'.replace(/[a-z]\d{3}/g,'X');		//a1b2c3d4
+	'a1b2c3d4'.replace(/([a-z]\d){3}/g,'X');	//Xd4
+	'ByronCasper'.replace(/Byron|Casper/g,'X');	//X
+	'ByronsperByrCasper'.replace(/Byr(on|Ca)sper/g,'X');	//XX
+	'2018-02-27'.replace(/(\d{4})-(\d{2})-(\d{2})/g,'$1');	//2018
+	'2018-02-27'.replace(/(\d{4})-(\d{2})-(\d{2})/g,'$2');	//02
+	'2018-02-27'.replace(/(\d{4})-(\d{2})-(\d{2})/g,'$3');	//27
+	'2018-02-27'.replace(/(\d{4})-(\d{2})-(\d{2})/g,'$2/$3/$1');	//02/27/2018
+	不希望捕获分组，只需在分组内加上 ?: 就可以
+
+	前瞻
+	正向前瞻	exp(?=assert)
+	负向前瞻	exp(?!assert)
+	'a2*3'.replace(/\w(?=\d)/g,'X');	//X2*3
+	'a2*34v8'.replace(/\w(?=\d)/g,'X');	//X2*X4X8
+	'a2*34vv'.replace(/\w(?!\d)/g,'X');	//aX*3XXX
+
+	对象属性
+	global:是否全文搜索，默认false
+	ignore case:是否大小写敏感，默认是false
+	multiline:多行搜索，默认值是false
+	lastIndex:是当前表达式匹配内容的最后一个字符的下一个位置
+	source:正则表达式的文本字符串 
+
+	RegExp.prototype.test(str)
+	  用于测试字符串参数中是否存在匹配正则表达式模式的字符串
+	  如果存在则返回true，否则返回false
+	RegExp.prototype.exec(str)
+	  使用正则表达式模式对字符串执行搜索，并将更新全局RegExp对象的属性以反映匹配结果
+	  如果没有匹配的文本则返回null,否则返回一个结果数组:
+	  -index声明匹配文本的第一个字符的位置
+	  -input存放被检索的字符串string
+	非全局调用
+	  调用非全局的RegExp对象的exec()时，返回数组
+	  第一个元素是与正则表达式相匹配的文本
+	  第二个元素是与RegExpObject的第一个子表达式相匹配的文本（如果有的话）
+	  第三个元素是与RegExp对象的第二个子表达式相匹配的文本（如果有的话），以些类推
+
+	exec与全局是否定义无关系，而match则于全局相关联，当定义为非全局，两者执行结果相同
+
+	字符串对象方法
+	  String.prototype.match()：返回一个数组，成员是所有匹配的子字符串。
+	  String.prototype.search()：按照给定的正则表达式进行搜索，返回一个整数，表示匹配开始的位置。
+	  String.prototype.replace()：按照给定的正则表达式进行替换，返回替换后的字符串。
+	  String.prototype.split()：按照给定规则进行字符串分割，返回一个数组，包含分割后的各个成员。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
