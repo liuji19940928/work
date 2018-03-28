@@ -187,7 +187,7 @@ align-self
 	display:block;
 	height:0;
 	clear:both;
-	visibility:hidden
+	visibility:hidden;
 }     /*所有主流浏览器都支持 :after 伪元素。*/ 
 .clearfix{*+height:1%;}/*不知道有什么用处，不加ie7也没有问题*/ 
 .clearfix:after {
@@ -221,6 +221,9 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 
 
 12.
+	event.preventDefault(); //只阻止了默认事件，冒泡事件没有阻止
+	event.stopPropagation();  //只阻止了冒泡事件， 默认默认行为没有阻止
+	return false;         //冒泡事件和默认事件都阻止
 
 
 
