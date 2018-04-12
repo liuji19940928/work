@@ -231,6 +231,20 @@ ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 
 
 
+13.
+	获取年份：	new Date().getFullYear();	//2018
+	获取月份：	new Date().getMonth()+1;	//4
+	获取日期：	new Date().getDate();		//12
+	获取星期几：	new Date().getDay();		//4
+	获取1970.1.1至今的毫秒数（时间戳）：	new Date().getTime();	//1523501855077
+	获取小时：	new Date().getHours();		//10
+	获取分钟：	new Date().getMinutes();	//57
+	获取秒：	new Date().getSeconds();	//59
+	获取毫秒：	new Date().getMilliseconds();	//479
+	获取年/月/日：	new Date().toLocaleDateString();//"2018/4/12"
+	获取 时分秒：	new Date().toLocaleTimeString();//"上午10:58:25"
+	获取 年/月/日 时/分/秒：	new Date().toLocaleString();	//"2018/4/12 上午10:58:38"
+
 
 
 
