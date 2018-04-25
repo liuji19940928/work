@@ -1,0 +1,16 @@
+1.安装jdk（1.8+）	https://jingyan.baidu.com/article/6dad5075d1dc40a123e36ea3.html
+
+2.安装sdk（26）	
+	直接安装Android studio会自动下载所需的文件，之后自己配置一下环境变量
+		安装Android studio教程：	
+		http://www.jb51.net/article/128057.htm?utm_source=debugrun&utm_medium=referral
+		配置环境变量：
+		https://blog.csdn.net/zeternityyt/article/details/79655150	
+
+3.安装cordova		http://cordova.axuer.com/
+			https://blog.csdn.net/gameloft9/article/details/50978951
+	npm install -g cordova
+	cordova create MyApp
+	cordova platform add android
+	cordova build android
+apk文件在platforms\android\app\build\outputs\apk\debug文件下
