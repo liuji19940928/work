@@ -1,0 +1,8 @@
+
+npm install --global vue-cli 全局安装 vue-cli
+
+vue init webpack projectName(自定义项目名称) 创建一个基于webpack模板的新项目
+
+进入到项目名称文件夹中执行 npm install 安装项目所需依赖
+
+运行 npm run dev 运行项目

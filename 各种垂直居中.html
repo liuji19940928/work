@@ -1,0 +1,225 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no"/>
+    <title>垂直居中</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/master_wj.css">
+
+</head>
+<style>
+
+    .parent{
+        height: 200px;
+        width: 100%;
+    }
+    .whiteBlock{
+        width: 500px;
+        height:50px;
+        background: #fff;
+        line-height: 50px;
+        text-align: center;
+        color: #000;
+    }
+/*方法11111111111111111111111*/
+        .way_1{
+            position: relative;
+        }
+        .way_1_center{
+            position: absolute;
+            top:0;
+            left:0;
+            bottom:0;
+            right:0;
+            margin:auto;
+        }
+
+
+
+
+
+
+/*方法22222222222222222222*/
+        .way_2 {
+            text-align: center;
+        }
+        .way_2:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+            margin-right: -0.25em; /* Adjusts for spacing */
+        }
+        .way_2_center {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+
+
+
+
+
+/*方法33333333333333333333*/
+        .way_3 {
+            display: table;
+        }
+        .way_3_center {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            color: #fff;
+        }
+
+
+
+    /*方法3333------22222222*/
+    .way_3_2 {
+        width: 800px;
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
+    .way_3_2_center {
+        display: inline-block;
+        vertical-align: middle;
+        color: #fff;
+    }
+
+
+
+
+
+/*方法44444444444444444*/
+        .way_4{
+            position: relative;
+        }
+        .way_4_center{
+            text-align: center;
+            transform: translate(-50%,-50%);
+            position: absolute;
+            top:50%;
+            left:50%;
+        }
+
+
+
+/*方法555555555555555*/
+    .way_5{
+        display: flex;
+        align-items: center;
+        justify-content: center;  /*水平居中*/
+    }
+    .way_5_center{
+
+    }
+
+
+/*方法666666666666666*/
+    .way_6{
+        position: relative;
+    }
+    .way_6_center{
+        /*padding: -webkit-calc((100% - 500px) / 2);*/
+        /*padding: -moz-calc((100% - 500px) / 2);*/
+        /*padding: -ms-calc((100% - 500px) / 2);*/
+        padding: calc((200px - 50px) / 2) calc((100% - 500px) / 2);/*计算padding值*/
+        background-clip: content-box;
+    }
+
+/*方法7777777777777*/
+    .way_7{
+        display: table;
+    }
+    .way_7_center{
+        color: #000;
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+
+
+</style>
+<body style="min-width: 800px">
+
+<!--方法1   兼容IE8-->
+<div class="parent way_1" style="background: rgba(0,0,0,0.1)">
+    <div class="way_1_center whiteBlock">
+        margin_auto_0000 法( 此处为子元素 div 兼容IE8 )
+    </div>
+</div>
+
+
+<!--方法2   兼容IE8（注意伪类是单冒号':',不是双冒号'::'）-->
+<div class="parent way_2" style="background: rgba(0,0,0,0.2)">
+    <div class="way_2_center whiteBlock">
+        伪类 before 法( 此处为子元素 div 兼容IE8 )
+    </div>
+</div>
+
+
+
+<!--方法3  兼容IE8-->
+<div class="parent way_3" style="background: rgba(0,0,0,0.3)">
+    <div class="way_3_center">
+        <p>table 法 ( 此处为子元素 文本 兼容IE8)</p>
+        <div class="whiteBlock" style="display: inline-block">
+            table 法 ( 此处为子元素 inline-block div 兼容IE8 )
+        </div>
+    </div>
+</div>
+
+<!--方法3-2  兼容IE8-->
+<div class="parent way_3_2" style="background: rgba(0,0,0,0.35)">
+    <div class="way_3_2_center">
+        <p>table 法2 ( 此处为子元素 文本 兼容IE8 parent定宽 )</p>
+        <div class="whiteBlock">
+            table 法2 ( 此处为子元素 div 兼容IE8 parent定宽 )
+        </div>
+    </div>
+</div>
+
+<!--方法4   css3-->
+<div class="parent way_4" style="background: rgba(0,0,0,0.4)">
+    <div class="way_4_center whiteBlock">
+        trans 法（CSS3）
+    </div>
+</div>
+
+
+<!--方法5   css3-->
+<div class="parent way_5" style="background: rgba(0,0,0,0.5)">
+    <div class="way_5_center whiteBlock">
+        flex 法（CSS3）
+    </div>
+</div>
+
+<!--方法6   css3-->
+<div class="parent way_6" style="background: rgba(0,0,0,0.6)">
+    <div class="way_6_center whiteBlock">
+        calc() 法（CSS3）
+    </div>
+</div>
+
+
+<!--方法7   css3-->
+<div class="parent way_7" style="background: rgba(0,0,0,0.7)">
+    <div class="way_7_center whiteBlock">
+        calc() 法
+    </div>
+</div>
+
+<!-- table中 -->
+<table>
+    <tr>
+        <td align="center" valign="middle">content</td>
+    </tr>
+</table>
+
+</body>
+
+</html>
