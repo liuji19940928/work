@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello world</title>
+    <script src="./vue-2.5.16.js"></script>
+</head>
+<body>
+    <div id="app">
+        <counter ref='one' @change="handleChange"></counter>
+        <counter ref='two' @change="handleChange"></counter>
+        <div >{{sum}}</div>
+    </div>
+
+    <script>
+
+        Vue.component('counter',{
+            template:'<div @click="handleClick">{{number}}</div>',
+            data:function(){
+                return {
+                    number: 0
+                }
+            },
+            methods:{
+                handleClick:function(){
+                    this.number++;
+                    this.$emit('change')
+                }
+            }
+        })
+        var app = new Vue({
+            el:'#app',
+            data:{
+                sum:0
+            },
+            methods:{
+                handleChange:function(){
+                    this.sum = this.$refs.one.number + this.$refs.two.number
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

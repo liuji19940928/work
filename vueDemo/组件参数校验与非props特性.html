@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello world</title>
+    <script src="./vue-2.5.16.js"></script>
+</head>
+<body>
+    <div id="app">
+        <child content='hello1'></child>
+    </div>
+
+    <script>
+        Vue.component('child',{
+            props:{
+                //content: [Number,String]     
+                //content: String     
+                content:{
+                    type: String,
+                    required: true,      //是否必传
+                    //default: 'default value',    //默认传的值
+                    validator: function (value) {   //校验传值的长度
+                        return (value.length > 5)
+                    }
+                }
+            },
+            template:'<div>child</div>'
+        })
+        var app = new Vue({
+            el:'#app',
+            data:{
+                
+            }
+        })
+
+        
+    </script>
+</body>
+</html>

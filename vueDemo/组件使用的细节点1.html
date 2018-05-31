@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello world</title>
+    <script src="./vue-2.5.16.js"></script>
+</head>
+<body>
+    <div id="app">
+        <table>
+            <tbody>
+                <!-- <row></row> -->
+                <!-- tbody下只能嵌套tr   可以用is解决-->
+                <tr is="row"></tr>
+                <tr is="row"></tr>
+                <tr is="row"></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+
+        Vue.component('row',{
+            template:'<tr><td>123</td></tr>'
+        })
+        var app = new Vue({
+            el:'#app',
+            data:{
+                
+            }
+        })
+
+    </script>
+</body>
+</html>

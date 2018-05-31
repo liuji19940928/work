@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello world</title>
+    <script src="./vue-2.5.16.js"></script>
+    <style>
+    .v-enter,
+    .v-leave-to{
+        opacity: 0;
+    }
+    .v-enter-active,
+    .fade-leave-active{
+        transition: opacity 1s;
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <transition-group>
+            <div v-for="item in list" :key="item.id">
+                {{item.title}}
+            </div>
+        </transition-group>
+        <button @click='handleClick'>add</button>
+    </div>
+
+    <script>
+        var count = 0
+        var app = new Vue({
+            el:'#app',
+            data:{
+                
+                list:[]
+            },
+            methods:{
+                handleClick:function(){
+                    this.list.push({
+                        id:count++,
+                        title:'hello world'
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>

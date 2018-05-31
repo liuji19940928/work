@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello world</title>
+    <script src="./vue-2.5.16.js"></script>
+</head>
+<body>
+    <div id="app">
+        <counter @change="handleChange" :count="2"></counter>
+        <counter @change="handleChange" :count="3"></counter>
+        <div>{{sum}}</div>
+    </div>
+
+    <script>
+        var counter = {
+            props:['count'],
+            data:function(){
+                return {
+                    number:this.count
+                }
+            },
+            template:"<div @click='add'>{{number}}</div>",
+            methods:{
+                add:function(){
+                    this.number = this.number + 2
+                    this.$emit('change',2)
+                }
+            }
+        }
+        var app = new Vue({
+            el:'#app',
+            data:{
+                sum: 5
+            },
+            components:{
+                counter
+            },
+            methods:{
+                handleChange:function(step){
+                    console.log(step)
+                    this.sum += step
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello world</title>
+    <script src="./vue-2.5.16.js"></script>
+</head>
+<body>
+    <div id="app">
+        <child>
+            <div class="header" slot="header">header</div>
+            <div class="footer" slot="footer">footer</div>
+        </child>
+    </div>
+
+    <script>
+        Vue.component('child',{
+            template:`<div>
+                        <slot name="header"></slot>
+                        <p>child</p>
+                        <slot name="footer"></slot>
+                      </div>`
+        })
+        var app = new Vue({
+            el:'#app',
+            data:{
+                
+            }
+        })
+
+    </script>
+</body>
+</html>
