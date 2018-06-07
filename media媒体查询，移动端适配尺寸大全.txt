@@ -33,3 +33,78 @@
     font-size: 30.72px; 
   } 
 } 
+
+
+
+
+https://www.jianshu.com/p/739d7ce9c6fe
+标注作者
+<meta name="author" content="网站域名"/>
+
+在浏览器中页面将以原始大小显示，并不允许缩放
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+
+
+在浏览器中页面中出现的手机号码将不以拨号的超链接的形式出现，在iphone中默认以超链接形式出现（无需添加）
+
+<meta name="format-detection" content="telephone=no">
+
+
+
+不识别页面中出现的邮箱
+
+<meta name="format-detection" content="email=no"/>
+
+开启页面对webapp程序的支持，一开始不需要添加
+
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+
+
+
+在webapp应用下状态条(屏幕顶部条)的颜色,默认default为白色，可以定义为黑色black和灰色半透明black-translucent。
+
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+
+
+添加到主屏幕“后，全屏显示（完全不明白,可以添加）
+
+<meta name="apple-touch-fullscreen" content="yes">
+
+
+
+删除默认的苹果工具栏和菜单栏,默认是显示（无需添加）
+
+<meta name="apple-mobile-web-app-capable" content="no"/>
+
+
+
+设置启动时的界面显示的图片
+<link rel="apple-touch-startup-image" href="milanoo_startup.png" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
