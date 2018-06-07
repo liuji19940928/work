@@ -1,0 +1,2593 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>z-x-x:webApp</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+
+        <link rel="stylesheet" href="./toc/src/github-markdown.css">
+        <link rel="stylesheet" href="./toc/src/highlight/styles/atom-one-dark.css">
+        <script src="./toc/src/highlight/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<!--
+    Author:LEO
+    WeChat:zw142857
+    QQ:765508285
+-->
+<h1 id="-app-">移动APP第一天</h1>
+<h2 id="-">环境配置</h2>
+<blockquote>
+<p>所有环境变量配置所在皆为 系统属性-高级-环境变量-系统变量 
+快捷打开方式 <code>window + x -&gt; 系统 -&gt; 高级系统设置 -&gt; 高级 -&gt; 环境变量 -&gt; 系统变量</code></p>
+</blockquote>
+<h3 id="java-">Java环境配置</h3>
+<h4 id="-java-jdk">安装Java JDK</h4>
+<blockquote>
+<p>下载Java JDK，网址：<a href="http://www.oracle.com/technetwork/cn/java/javase/downloads/jdk8-downloads-2133151-zhs.html">http://www.oracle.com/technetwork/cn/java/javase/downloads/jdk8-downloads-2133151-zhs.html</a> 然后一路下一步就能够安装，安装完了就配置环境变量
+<img src="media/14892960874185/1488861057327.png" alt="1488861057327"></p>
+</blockquote>
+<h4 id="-java-">配置Java环境变量</h4>
+<p><strong>1. 系统变量中添加配置 <code>JAVA_HOME</code></strong>
+    <img src="media/14892960874185/0.1.jpg" alt="0.1"></p>
+<p><strong>2. Path环境变量中添加<code>%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;</code></strong></p>
+<p><img src="media/14892960874185/0.2.jpg" alt="0.2"></p>
+<p><strong>3. 在CLASSPATH环境变量中添加<code>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;</code>,没有CLASSPATH就自己新建一个</strong></p>
+<p><img src="media/14892960874185/0.1.1.jpg" alt="0.1.1"></p>
+<p><strong>4. 打开cmd命令行,执行<code>javac</code>,如下图显示,则说明Java环境已配置正确</strong></p>
+<p><img src="media/14892960874185/1488861749335.png" alt="1488861749335"></p>
+<h3 id="android-">Android环境配置</h3>
+<blockquote>
+<p>下载Android SDK,下载地址 <a href="http://www.androiddevtools.cn/">http://www.androiddevtools.cn/</a>
+下载Android 环境依赖包：<a href="http://mirrors.neusoft.edu.cn/android/repository/">http://mirrors.neusoft.edu.cn/android/repository/</a></p>
+</blockquote>
+<p><img src="media/14892960874185/SDKTools.jpg" alt="SDKTools"></p>
+<p><img src="media/14892960874185/1488862931526.png" alt="1488862931526"></p>
+<h4 id="-android-sdk-">安装 Android SDK 和 依赖包</h4>
+<p><strong>1. 安装Android SDK,可以采用默认安装，安装过程中会让选择是配置到所用用户还是当前用户，选择所有用户。默认安装路径应该是<code>C:\Program Files (x86)\Android\android-sdk</code></strong></p>
+<p><img src="media/14892960874185/1488863503334.png" alt="1488863503334"></p>
+<blockquote>
+<p>提示: 如果网好的话，可以直接用SDK Manager来安装剩下的所有工具包，后面所有步骤就不需要做了。没网就需要用到下面的离线包按步骤自行安装</p>
+</blockquote>
+<p><strong>2. 安装<code>build-tools</code>,参照下图</strong></p>
+<p><img src="media/14892960874185/1488864308367.png" alt="1488864308367"></p>
+<p><strong>3. 安装<code>platform-tools</code>,直接解压复制到SDK Manager目录(如果下面已经存在platform-tools，就先把它删掉再复制)</strong></p>
+<p><img src="media/14892960874185/1488864702397.png" alt="1488864702397"></p>
+<p><strong>4. 安装<code>platforms</code>,参照下图</strong></p>
+<p><img src="media/14892960874185/1488865260552.png" alt="1488865260552"></p>
+<p><strong>5. 安装<code>tools</code>，解压<code>tools_r25.2.5</code>压缩包,直接复制到SDK Manager目录(如果存在tools文件夹,就先删除在复制)</strong></p>
+<p><img src="media/14892960874185/1488865576307.png" alt="1488865576307"></p>
+<p><strong>6.新建<code>extras/android</code>文件夹，将m2repository和support解压后的两个文件夹放进android文件夹下面</strong></p>
+<p><img src="media/14892960874185/1488865971823.png" alt="1488865971823"></p>
+<h4 id="-android-">配置Android环境变量</h4>
+<p><strong>1. 系统变量中添加配置 <code>ANDROID_HOME</code></strong></p>
+<p><img src="media/14892960874185/1488866357410.png" alt="1488866357410"></p>
+<p><strong>2. Path中添加Android的环境变量<code>%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools</code></strong></p>
+<p><img src="media/14892960874185/1488866727589.png" alt="1488866727589"></p>
+<p><strong>3. 配置完毕后，在cmd命令行窗口中输入<code>adb</code>,见到如下提示，说明Android环境已经安装成功</strong></p>
+<p><img src="media/14892960874185/1488867418229.png" alt="1488867418229"></p>
+<h2 id="-app-">混合APP开发</h2>
+<h3 id="-">安装项目依赖环境</h3>
+<pre><code>// 1. 全局安装打包工具 cordova
+npm install cordova -g
+
+// 2. 全局安装框架ionic
+npm install ionic -g
+</code></pre><h3 id="-">创建项目</h3>
+<pre><code>// 使用ionic创建项目模板
+ionic start ionic_example
+</code></pre><h3 id="-app">打包APP</h3>
+<pre><code>// 1. 添加项目平台(android)
+ionic platform add android
+
+// 2. 运行在手机
+ionic run android
+</code></pre><h2 id="webpack-">Webpack使用</h2>
+<h3 id="webpack-">webpack项目结构</h3>
+<ol>
+<li><p>在代码文件夹中创建项目文件夹 <code>webpack_example</code>,在项目文件夹中按照下图所示创建项目结构，其中<code>node_modules</code>和<code>package.json</code>不用手动创建</p>
+<p> <img src="media/14892960874185/1488868940141.png" alt="1488868940141"></p>
+</li>
+</ol>
+<ol>
+<li>创建<code>package.json</code>文件</li>
+</ol>
+<pre><code>    // 在webpack_example文件夹下 打开命令行窗口 使用如下命令
+    npm init -y
+</code></pre><ol>
+<li><p>全局安装<code>webpack</code></p>
+<pre><code> npm install webpack -g
+</code></pre></li>
+<li><p>局部安装webpack及依赖</p>
+<pre><code> // 在webpack_example文件夹下 打开命令行窗口 使用以下命令局部安装 webpack
+ npm install webpack --save-dev
+</code></pre></li>
+</ol>
+<h3 id="webpack-">webpack配置文件</h3>
+<h4 id="-">基本配置</h4>
+<blockquote>
+<p>注意: <code>webpack</code>默认配置文件名是<code>webpack.config.js</code></p>
+<p>在项目根目录下直接使用<code>webpack</code>命令会寻找<code>webpack.config.js</code>执行</p>
+<p>因为我们的配置文件名称为<code>webpack.develop.config.js</code>,所以执行时需要使用
+<code>webpack --config webpack.develop.config.js</code></p>
+</blockquote>
+<ol>
+<li>打开<code>webpack.develop.config.js</code>文件,配置以下内容</li>
+</ol>
+<pre><code>    /**
+     *  webpack 开发阶段配置文件
+     */
+
+    var path = require(&#39;path&#39;);
+    module.exports = {
+        // 入口文件
+        entry: path.resolve(__dirname, &#39;src/js/app.js&#39;),
+        // 输出文件
+        output: {
+            // 输出至哪个文件夹
+            path: path.resolve(__dirname, &#39;dist&#39;),
+            // 输出的文件名
+            filename: &#39;bundle.js&#39;
+        }
+    }
+</code></pre><ol>
+<li>在<code>app.js</code>文件中输入代码,使用<code>webpack</code>命令运行，可以看到一个<code>bundle.js</code>文件被生成(项目文件夹下的<code>dist</code>目录下会有一个<code>bundle.js</code>文件)</li>
+</ol>
+<pre><code>    // 1. 在app.js文件中输入 
+    var a = 10;
+
+    // 2. 在当前项目根目录打开命令行，使用以下webpack命令
+    webpack --config webpack.develop.config.js
+
+</code></pre>
+<p> <img src="media/14892960874185/1488870937254.png" alt="1488870937254"></p>
+<h4 id="-">配置文件改造</h4>
+<blockquote>
+<p> 每次运行代码需要执行很长的命令比较麻烦,我们可以使用npm run命令来快捷执行</p>
+</blockquote>
+<h5 id="-">快捷执行</h5>
+<ol>
+<li>在package.json文件加入以下内容</li>
+</ol>
+<pre><code>    &quot;scripts&quot;: {
+        &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,
+        &quot;develop&quot;: &quot;webpack --config webpack.develop.config.js&quot;,
+        &quot;publish&quot;: &quot;webpack --config webpack.publish.config.js&quot;
+      },
+</code></pre><ol>
+<li><p>以后再运行代码就可以直接使用<code>npm run develop</code>，效果和最开始直接执行<code>webpack --config webpack.develop.config.js</code>是一样的</p>
+<p> <img src="media/14892960874185/1488871834332.png" alt="1488871834332"></p>
+</li>
+</ol>
+<h3 id="-">自动更新</h3>
+<blockquote>
+<p>如果希望代码一改动，不需要重新运行<code>npm run develop</code>就可以自动构建，并且浏览器显示的内容也能自动刷新,需要安装<code>webpack-dev-server</code>并重新配置<code>package.json</code>文件</p>
+</blockquote>
+<ol>
+<li>全局安装<code>webpack-dev-server</code></li>
+</ol>
+<pre><code>    npm install webpack-dev-server -g
+</code></pre><ol>
+<li><p>局部安装<code>webpack-dev-server</code>及其依赖</p>
+<pre><code> npm install webpack-dev-server --save-dev
+</code></pre></li>
+<li><p>在<code>package.json</code>文件中的<code>develop</code>下做如下更改</p>
+<pre><code> &quot;scripts&quot;: {
+
+         &quot;develop&quot;: &quot;webpack-dev-server --config webpack.develop.config.js --devtool eval-source-map --progress --colors --inline --hot --content-base ./dist&quot;,
+
+     }
+</code></pre></li>
+<li><p>然后重新执行 <code>npm run develop</code>命令，访问<code>http://localhost:8080</code></p>
+</li>
+<li><p>此时直接修改<code>app.js</code>中的内容,可以看到命令行窗口会自动构建，而且浏览器中的内容会自动刷新</p>
+</li>
+</ol>
+<blockquote>
+<p>注意: 如果有修改过<code>package.json</code>文件，必须手动执行一次<code>npm run develop</code>命令构建项目</p>
+</blockquote>
+<h2 id="webpack-">webpack加载器配置</h2>
+<blockquote>
+<p><code>loader</code>：<code>webpack</code>提供的一批预处理工具，可以将浏览器不识别的代码处理成可识别可以执行的代码</p>
+</blockquote>
+<h3 id="babel-loader">babel-loader</h3>
+<blockquote>
+<p><code>babel-loader</code>可以将<code>ES6</code>语法转换成<code>ES5</code>语法，将<code>React</code>语法转成普通<code>JavaScript</code>语法</p>
+</blockquote>
+<ol>
+<li>在当前项目目录下安装<code>babel-loader</code></li>
+</ol>
+<pre><code>    npm install babel-loader --save-dev
+</code></pre><ol>
+<li><p>安装依赖模块</p>
+<pre><code> npm install babel-core babel-preset-es2015 babel-preset-react --save-dev
+</code></pre></li>
+<li><p>修改<code>webpack.develop.config.js</code></p>
+<pre><code> // 在module.exports对象下增加如下内容
+ module: {
+         // webpack 1 写法
+         // loaders: [{
+         //     test: /\.jsx?$/, //用正则匹配文件路径,匹配jsx和js
+         //     loader: &#39;babel-loader&#39;,
+         //     query: {
+         //         presets: [&#39;es2015&#39;, &#39;react&#39;]
+         //     }
+         // }]
+
+         // webpack 2 写法
+         rules: [{
+                 test: /\.jsx?$/,
+                 use: [{
+                     loader: &#39;babel-loader&#39;,
+                     options: {
+                         presets: [&#39;es2015&#39;, &#39;react&#39;]
+                     }
+                 }]
+             }]
+     }
+</code></pre></li>
+<li><p>配置完毕后，可以下载<code>React</code>和<code>React-DOM</code>书写<code>React</code>代码验证是否可以转换</p>
+<pre><code> npm install react react-dom -save
+</code></pre></li>
+<li><p>在<code>app.js</code>文件中书写<code>React</code>代码</p>
+<pre><code>      /**
+      * 项目入口文件
+      */
+      // 引入React
+     import React, { Component } from &#39;react&#39;
+     // 引入ReactDOM
+     import ReactDOM from &#39;react-dom&#39;
+
+     // 使用ReactDOM渲染html节点
+     ReactDOM.render(
+          &lt;div&gt;
+             hello world
+          &lt;/div&gt;,
+         document.getElementById(&#39;app&#39;)
+     )
+     // 在JavaScript文件中书写HTML代码，叫做jsx语法，所以React文件一般用jsx作为后缀名
+</code></pre></li>
+<li><p>由于此时是<code>jsx</code>语法,浏览器不识别,所以如果没有<code>babel-loader</code>直接编译，会报错</p>
+<p> <img src="media/14892960874185/1488877344198.png" alt="1488877344198"></p>
+</li>
+<li><p>使用<code>babel-loader</code>后,编译</p>
+<p> <img src="media/14892960874185/1488877553427.png" alt="1488877553427"></p>
+</li>
+</ol>
+<h3 id="css-loader-style-loader">css-loader&amp;style-loader</h3>
+<blockquote>
+<p><code>css-loader</code>以及<code>style-loader</code>用来处理<code>CSS</code>，<code>css-loader</code>会遍历<code>css</code>文件，找到所有的<code>url(...)</code>并且处理。<code>style-loader</code>会把所有的样式插入到你页面的一个<code>style tag</code>中</p>
+</blockquote>
+<ol>
+<li><p>安装<code>css-loader</code>和<code>style-loader</code></p>
+<p> npm install css-loader style-loader --save-dev</p>
+</li>
+<li><p>修改配置文件,添加<code>css-loader</code>和<code>style-loader</code></p>
+<pre><code> rules: [{
+             test: /\.jsx?$/,
+             use: [{
+                 loader: &#39;babel-loader&#39;,
+                 options: {
+                     presets: [&#39;es2015&#39;, &#39;react&#39;]
+                 }
+             }]
+         }, {
+             test: /\.css$/,
+             // 注意:必须先写style-loader再写css-loader
+             loader: &#39;style-loader!css-loader&#39;
+             // 下面这张写法也可以
+             // use: [&#39;style-loader&#39;, &#39;css-loader&#39;]
+         }]
+</code></pre></li>
+<li><p>用<code>React</code>自定义一个组件，新建一个文件<code>Hello.js</code></p>
+<pre><code> import React, { Component } from &#39;react&#39;
+ import &#39;./hello.css&#39;
+
+ export default class Hello extends Component {
+     render() {
+         return (
+              &lt;div &gt;
+                 &lt;h1&gt;hello world!&lt;/h1&gt;
+              &lt;/div&gt;
+         )
+     }
+ }
+</code></pre></li>
+<li><p>新建一个<code>hello.css</code>文件，并在<code>Hello.js</code>中引入这个<code>css</code>文件</p>
+<pre><code> h1 {
+     color: red;
+ }
+</code></pre></li>
+<li><p>在<code>app.js</code>中使用这个<code>Hello</code>组件</p>
+<pre><code> /**
+  * 项目入口文件
+  */
+ import React, { Component } from &#39;react&#39;
+ import ReactDOM from &#39;react-dom&#39;
+
+ import Hello from &#39;../example/Hello.js&#39;
+
+ ReactDOM.render(
+      &lt;div&gt;
+        &lt;Hello /&gt;
+      &lt;/div&gt;,
+     document.getElementById(&#39;app&#39;)
+ )
+</code></pre></li>
+<li><p>使用<code>npm run develop</code>编译查看运行结果</p>
+<p><img src="media/14892960874185/1488879029541.png" alt="1488879029541"></p>
+</li>
+</ol>
+<h3 id="scss-loader">scss-loader</h3>
+<blockquote>
+<p><code>scss-loader</code>将<code>SASS</code>和<code>LESS</code>转换成正常可识别<code>CSS</code></p>
+</blockquote>
+<ol>
+<li><p>安装<code>sass-loader</code>及其依赖</p>
+<pre><code> npm install node-sass
+ npm install sass-loader --save-dev
+</code></pre></li>
+<li><p>修改配置文件,添加<code>sass-loader</code></p>
+<pre><code> rules: [
+             // 转换ES6语法和React jsx语法
+             {
+                 test: /\.jsx?$/,
+                 use: [{
+                     loader: &#39;babel-loader&#39;,
+                     options: {
+                         presets: [&#39;es2015&#39;, &#39;react&#39;]
+                     }
+                 }]
+             },
+             // 处理js中引用css文件
+             {
+                 test: /\.css$/,
+                 // loader: &#39;style-loader!css-loader&#39;
+                 use: [&#39;style-loader&#39;, &#39;css-loader&#39;]
+             },
+             // 处理js中引用sass文件
+             {
+                 test: /\.scss$/,
+                 use: [&#39;style-loader&#39;, &#39;css-loader&#39;, &#39;sass-loader&#39;]
+             }
+         ]
+</code></pre></li>
+<li><p>新建<code>_base.scss</code>和<code>hello.scss</code>文件</p>
+<p> <img src="media/14892960874185/1488899950833.png" alt="1488899950833"></p>
+</li>
+<li><p>重新使用<code>npm run develop</code>构建项目</p>
+<p> <img src="media/14892960874185/1488900090762.png" alt="1488900090762"></p>
+</li>
+</ol>
+<h3 id="url-loader">url-loader</h3>
+<blockquote>
+<p> <code>url-loader</code>用来打包文件和图片以及处理<code>icon</code>字体的加载器</p>
+</blockquote>
+<ol>
+<li><p>安装<code>url-loader</code>和<code>file-loader</code></p>
+<pre><code> npm install url-loader file-loader -save-dev
+</code></pre></li>
+<li><p>修改配置文件，在<code>rules</code>下面添加</p>
+</li>
+</ol>
+<pre><code>    // 处理图片操作
+    {
+        test: /\.(png|jpg|jpeg|gif)$/,
+        use: &#39;url-loader?limit=25000&#39;
+    }
+</code></pre><ol>
+<li><p>创建<code>images</code>文件夹引入一张图片，在<code>Hello.js</code>组件中添加<code>image</code>标签，然后在<code>hello.css</code>文件中设置图片地址及其他样式</p>
+<p> <img src="media/14892960874185/1488945844549.png" alt="1488945844549"></p>
+</li>
+<li><p>重新使用<code>npm run develop</code>构建项目</p>
+<p> <img src="media/14892960874185/1488945976912.png" alt="1488945976912"></p>
+</li>
+</ol>
+<blockquote>
+<p> <code>ulr-loader</code>配置信息的参数“?limit=8192”表示将所有小于8kb的图片都转为base64形式 （其实应该说超过8kb的才使用 url-loader 来映射到文件，否则转为data url形式）。这样做的好处是较小的图片不用去发送网络请求。</p>
+<p><code>url-loader</code>也可以用来处理<code>icon</code>字体，配置信息为:</p>
+</blockquote>
+<pre><code>// 处理iconfont
+{
+     test: /\.(eot|woff|ttf|woff2|svg)$/,
+     use: &#39;url-loader?limit=2500&#39;
+}
+</code></pre><h1 id="-app-">移动APP第二天</h1>
+<h2 id="webpack-">webpack发布策略</h2>
+<h3 id="-">修改配置文件</h3>
+<ol>
+<li><p>将<code>webpack.develop.config.js</code>中的内容拷贝到<code>webpack.publish.config.js</code>中,然后进行修改,如下:</p>
+<p> <img src="media/14901050058131/1488956147648.png" alt="1488956147648"></p>
+</li>
+</ol>
+<ol>
+<li>执行<code>npm run publish</code> 可以看到<code>dist</code>目录下生成了<code>bundle.js</code>和对应的<code>images</code>文件夹和图片
+<img src="media/14901050058131/1488956265152.png" alt="1488956265152"></li>
+</ol>
+<h3 id="-">分离第三方包</h3>
+<ol>
+<li><p>在<code>webpack.publish.config.js</code>中做如下修改</p>
+<ul>
+<li><p>修改入口文件</p>
+<pre><code>  // 分离第三方包后的入口文件
+     entry:{
+         app:path.resolve(__dirname, &#39;src/js/app.js&#39;),
+         // 需要分离的第三方包名写在数组中
+         vendors:[&#39;react&#39;,&#39;react-dom&#39;]
+     },
+</code></pre></li>
+<li><p>增加插件</p>
+<pre><code>   plugins:[
+          // 分离第三方包插件
+          new webpack.optimize.CommonsChunkPlugin({name:&#39;vendors&#39;,filename:&#39;vendors.js&#39;})
+      ]
+</code></pre></li>
+</ul>
+</li>
+<li><p>在<code>index.js</code>文件中引用<code>vendors.js</code>文件,然后执行编译</p>
+<p> <img src="media/14901050058131/1488957463464.png" alt="1488957463464"></p>
+</li>
+</ol>
+<h2 id="webpack-">webpack常用插件</h2>
+<h3 id="-">删除文件夹插件</h3>
+<blockquote>
+<p><code>clean-webpack-plugin</code>:在每次重新构建项目时，会自动删除上一次构建产生的文件夹和文件，防止产生冲突</p>
+</blockquote>
+<ol>
+<li><p>安装插件</p>
+<pre><code> npm install clean-webpack-plugin -save-dev
+</code></pre></li>
+<li><p>使用插件，在<code>webpack.publish.config.js</code>中做修改</p>
+<ul>
+<li>引入插件: <code>var CleanPlugin = require(&#39;clean-webpack-plugin&#39;);</code></li>
+<li><p>配置插件:<code>new CleanPlugin([&#39;dist&#39;])</code></p>
+<p>  <img src="media/14901050058131/1488958162260.png" alt="1488958162260"></p>
+</li>
+</ul>
+</li>
+<li><p><code>npm run publish</code> 重新构建项目</p>
+<p> <img src="media/14901050058131/1488958713019.png" alt="1488958713019"></p>
+</li>
+</ol>
+<h3 id="-html-">自动生成HTML页面插件</h3>
+<blockquote>
+<p><code>html-webpack-plugin</code>根据配置信息自动生成一个HTML页面,配置信息中主要填写引用的css和js文件</p>
+</blockquote>
+<ol>
+<li><p>安装插件</p>
+<pre><code> npm install html-webpack-plugin -save-dev
+</code></pre></li>
+<li><p>使用插件</p>
+<ul>
+<li><p>引入插件</p>
+<pre><code>  // 自动生成HTML页面
+  var HtmlWebpackPlugin = require(&#39;html-webpack-plugin&#39;);
+</code></pre></li>
+<li><p>配置插件</p>
+<pre><code>   new HtmlWebpackPlugin({
+      // 需要复制的HTML页面模板(在src目录下创建template.html)
+      template: &#39;./src/template.html&#39;,
+      htmlWebpackPlugin: {
+          &quot;files&quot;: {
+              // 需要引入的css文件
+              &quot;css&quot;: [&quot;app.css&quot;],
+              // 需要引入的js文件
+              &quot;js&quot;: [&quot;vendors.js&quot;, &quot;bundle.js&quot;]
+          }
+      },
+      // 代码压缩
+      minify: {
+          // 删除注释
+          removeComments: true,
+          // 删除空格
+          collapseWhitespace: true,
+          // 删除空格缩进
+          removeAttributeQuotes: true
+      }
+  })
+</code></pre></li>
+</ul>
+</li>
+<li><p>重新构建项目</p>
+<p> <img src="media/14901050058131/1488959629568.png" alt="1488959629568"></p>
+</li>
+</ol>
+<h3 id="-">代码压缩混淆插件</h3>
+<blockquote>
+<p><code>webpack.optimize.UglifyJsPlugin</code> 是webpack内置插件,用来压缩js代码</p>
+</blockquote>
+<ol>
+<li><p>直接在<code>plugins</code>中配置插件</p>
+<pre><code> // 代码压缩插件
+ new webpack.optimize.UglifyJsPlugin({
+     compress: {
+         warnings: false
+     }
+ })
+</code></pre></li>
+<li><p>重新构建项目对比压缩前和压缩后代码大小区别</p>
+<p> <img src="media/14901050058131/1488960515428.png" alt="1488960515428"></p>
+</li>
+</ol>
+<h3 id="-css-">抽取css文件插件</h3>
+<blockquote>
+<p><code>webpack</code>编译打包的<code>CSS</code>代码正常情况下会以<code>style</code>样式内嵌在目标<code>html</code>文件里面，但是如果用了<code>extract-text-webpack-plugin</code> 这个插件之后会先编译并打包所有的<code>CSS</code>代码</p>
+</blockquote>
+<ol>
+<li><p>安装插件</p>
+<pre><code> npm install extract-text-webpack-plugin -save-dev
+</code></pre></li>
+<li><p>使用插件</p>
+<ul>
+<li>引入插件</li>
+</ul>
+</li>
+</ol>
+<pre><code>        // 抽取css文件插件
+        var ExtractTextPlugin = require(&#39;extract-text-webpack-plugin&#39;);
+
+- 修改配置文件
+
+
+        // 处理js中引用css文件
+        {
+            test: /\.css$/,
+            // loader: &#39;style-loader!css-loader&#39;
+            // use: [&#39;style-loader&#39;, &#39;css-loader&#39;]
+            // 使用抽取css插件后加载器写法
+            use: ExtractTextPlugin.extract({
+                fallback: &quot;style-loader&quot;,
+                use: &quot;css-loader&quot;
+            })
+        }
+
+
+        // 抽取css文件插件
+        new ExtractTextPlugin(&#39;app.css&#39;)
+</code></pre><ol>
+<li><p>重新构建项目，会多生成一个<code>app.css</code>文件</p>
+<p> <img src="media/14901050058131/1488963389222.png" alt="1488963389222"></p>
+</li>
+</ol>
+<blockquote>
+<p> <code>extract-text-webpack-plugin</code>插件也可以抽取<code>sass</code>，只需要修改一下配置文件</p>
+</blockquote>
+<pre><code>    // 处理js中引用sass文件
+    {
+        test: /\.scss$/,
+        // use: [&#39;style-loader&#39;, &#39;css-loader&#39;, &#39;sass-loader&#39;]
+        // 使用抽取sass写法
+        use: ExtractTextPlugin.extract({
+            fallback: &quot;style-loader&quot;,
+            use: &quot;css-loader!sass-loader&quot;
+        })
+    }
+</code></pre><h3 id="-">压缩代码插件(删除警告)</h3>
+<ol>
+<li><p>在配置文件中添加如下代码:</p>
+<pre><code> // 删除警告
+ new webpack.DefinePlugin({
+     &#39;process.env&#39;: {
+         NODE_ENV: &#39;&quot;production&quot;&#39;
+     }
+ })
+</code></pre></li>
+</ol>
+<h3 id="-">自动打开浏览器插件</h3>
+<blockquote>
+<p><code>open-browser-webpack-plugin</code>在开发阶段使用，构建完毕自动打开浏览器</p>
+</blockquote>
+<ol>
+<li><p>安装插件</p>
+<pre><code> npm install open-browser-webpack-plugin -save-dev
+</code></pre></li>
+<li><p>使用插件: 在<code>webpack.develop.config.js</code>中添加</p>
+<ul>
+<li><p>引入插件</p>
+<pre><code>  // 自动打开浏览器插件
+  var OpenBrowserPlugin = require(&#39;open-browser-webpack-plugin&#39;);
+</code></pre></li>
+<li><p>配置插件</p>
+<pre><code>  plugins: [
+      new OpenBrowserPlugin({
+          url: &#39;http://localhost:8080&#39;,
+          browser: &#39;chrome&#39;
+      })
+  ]
+</code></pre></li>
+</ul>
+</li>
+<li><p>使用<code>npm run develop</code>构建项目可以自动打开浏览器</p>
+</li>
+</ol>
+<h2 id="react">React</h2>
+<h3 id="react-">React简介</h3>
+<blockquote>
+<p><code>React</code> 是一个用于构建用户界面的 <code>JavaScript</code> 库。
+<code>React</code>主要用于构建<code>UI</code>，很多人认为 <code>React</code> 是 <code>MVC</code> 中的 <code>V</code>（视图）。
+<code>React</code> 起源于 <code>Facebook</code> 的内部项目，用来架设 <code>Instagram</code> 的网站，并于 2013 年 5 月开源。</p>
+</blockquote>
+<h3 id="react-">React四个核心概念</h3>
+<h4 id="virtual-dom-dom">Virtual DOM 虚拟DOM</h4>
+<blockquote>
+<p>组件并不是真实的 <code>DOM</code> 节点，而是存在于内存之中的一种数据结构，叫做虚拟 <code>DOM</code> <code>(Virtual DOM)</code>。只有当它插入文档以后，才会变成真实的 <code>DOM</code> 。根据 <code>React</code> 的设计，所有的 <code>DOM</code> 变动，都先在虚拟 <code>DOM</code> 上发生，然后再将实际发生变动的部分，反映在真实 <code>DOM</code>上，这种算法叫做 <code>DOM diff</code> ，它可以极大提高网页的性能表现。</p>
+</blockquote>
+<h4 id="-">组件化</h4>
+<blockquote>
+<p><code>React</code> 允许将代码封装成组件<code>(component)</code>，然后像插入普通 <code>HTML</code> 标签一样，在网页中插入这个组件。<code>React.createClass</code> 方法就用于生成一个组件类</p>
+</blockquote>
+<pre><code>    // 创建组件
+    var HelloMessage = React.createClass({
+      render: function() {
+        return &lt;h1&gt;Hello {this.props.name}&lt;/h1&gt;;
+      }
+    });
+
+    // 使用组件
+    ReactDOM.render(
+      &lt;HelloMessage name=&quot;John&quot; /&gt;,
+      document.getElementById(&#39;example&#39;)
+    );
+</code></pre><h4 id="jsx-">JSX语法</h4>
+<blockquote>
+<p>HTML 语言直接写在 JavaScript 语言之中，不加任何引号，这就是 JSX 的语法，它允许 HTML 与 JavaScript 的混写。</p>
+<p>JSX 的基本语法规则：遇到 HTML 标签（以 &lt; 开头），就用 HTML 规则解析；遇到代码块（以 { 开头），就用 JavaScript 规则解析。</p>
+</blockquote>
+<pre><code>    var names = [&#39;赵日天&#39;, &#39;叶良辰&#39;, &#39;龙傲天&#39;];
+    ReactDOM.render(
+      &lt;div&gt;
+      {
+        names.map(function (name) {
+          return &lt;div&gt;Hello, {name}!&lt;/div&gt;
+        })
+      }
+      &lt;/div&gt;,
+      document.getElementById(&#39;example&#39;)
+    );
+</code></pre><p><img src="media/14901050058131/1489299179040.png" alt="1489299179040"></p>
+<h4 id="dataflow-">DataFlow 单向数据流</h4>
+<blockquote>
+<p>react中，应用的数据传递是单向的通过state和props对象，不同于angular的双向数据绑定。单向数据流的意思就是，在一个多组件构成的应用中，每一个父组件负责管理state并且通过props传递给下一层组件。</p>
+<p>状态（state）通过setState方法来更新，来确保UI更新发生。如果有必要state的最终结果值应该被当作 子组件的属性 传递给子组件，在子组件中通过this.props来获取值。</p>
+</blockquote>
+<h3 id="-">组件生命周期</h3>
+<blockquote>
+<p>组件的生命周期可分成三个状态:
+<strong><code>Mounting</code></strong>：已插入真实 DOM
+<strong><code>Updating</code></strong>：正在被重新渲染
+<strong><code>Unmounting</code></strong>：已移出真实 DOM</p>
+</blockquote>
+<h4 id="-">生命周期函数</h4>
+<ul>
+<li><strong><code>componentWillMount</code> 在渲染前调用,在客户端也在服务端。</strong></li>
+<li><strong><code>componentDidMount</code> : 在第一次渲染后调用，只在客户端。之后组件已经生成 了对应的DOM结构，可以通过this.getDOMNode()来进行访问。 如果你想和其他JavaScript框架一起使用，可以在这个方法中调用setTimeout, setInterval或者发送AJAX请求等操作(防止异部操作阻塞UI)。</strong></li>
+<li><strong><code>componentWillReceiveProps</code> 在组件接收到一个新的prop时被调用。这个方法在初始化render时不会被调用。</strong></li>
+<li><strong><code>shouldComponentUpdate</code> 返回一个布尔值。在组件接收到新的props或者state时被调用。在初始化时或者使用forceUpdate时不被调用。可以在你确认不需要更新组件时使用。</strong></li>
+<li><strong><code>componentWillUpdate</code>在组件接收到新的props或者state但还没有render时被调用。在初始化时不会被调用。</strong></li>
+<li><strong><code>componentDidUpdate</code> 在组件完成更新后立即调用。在初始化时不会被调用。</strong></li>
+<li><strong><code>componentWillUnmount</code>在组件从 DOM 中移除的时候立刻被调用。</strong></li>
+</ul>
+<h4 id="es5-">ES5组件生命周期函数写法</h4>
+<pre><code>// ES5定义组件的写法
+import React, {Component} from &#39;react&#39;;
+// 创建组件
+var Life = React.createClass({
+   // getDefaultProps,getInitialState在es6的写法中不被支持
+   // 初始化props属性方法
+   getDefaultProps(){
+       console.log(&quot;getDefaultProps - 初始化props属性&quot;);
+   },
+   // 初始化我们的state属性
+   getInitialState(){
+       console.log(&quot;getInitialState - 初始化state的值&quot;);
+       return {
+           props1:&quot;初始化state的值&quot;
+       }
+   },
+   // 组件将要被渲染到真实的dom节点中
+   componentWillMount(){
+        console.log(&quot;componentWillMount - 组件将要被渲染到真实的dom节点&quot;);
+    },
+   // 组件已经插入到真实的dom节点中
+   componentDidMount(){
+       console.log(&quot;componentDidMount - 组件已经插入到真实的dom节点&quot;);
+   },
+   // 组件是否要被重新渲染
+   shouldComponentUpdate(){
+       // 这个方法比较特殊，如果你要重写，你要在这里手动的进行一下state值是否发生改变的判断，因为已经把之前的方法覆盖了
+       console.log(&quot;shouldCompontentUpdate - 判断组件是否要被重新渲染&quot;);
+       return true;
+   },
+   // 组件将要被重新渲染
+   componentWillUpdate(){
+       console.log(&quot;componentWillUpdate - 组件将要被重新渲染&quot;);
+   },
+   // 组件已经被重新渲染
+   componentDidUpdate(){
+       console.log(&quot;componentDidUpdate - 组件已经被重新渲染&quot;);
+   },
+   // 组件将要接受到新属性
+   componentWillReceiveProps(){
+       console.log(&quot;componnentWillReceiveProps - 组件将要接受到新属性&quot;);
+   },
+   click1(){
+       console.log(&quot;点击事件&quot;);
+       this.setState({
+           props1:&quot;改变state的值&quot;
+       })
+       console.log(&quot;2&quot;);
+       console.log(this.state.props1);
+   },
+   render() {
+       console.log(&quot;render&quot;);
+       return (
+           &lt;div&gt;
+               &lt;h1 onClick={this.click1}&gt;{this.state.props1}&lt;/h1&gt;
+           &lt;/div&gt;
+       )
+   }
+})
+
+module.exports=Life;
+</code></pre><h4 id="es6-">ES6组件生命周期函数写法</h4>
+<pre><code>// ES6语法定义的组件生命周期
+import React, {Component} from &#39;react&#39;;
+
+// 创建并导出组件
+export default class Life extends Component {
+    constructor(props){
+        super(props)
+        console.log(&quot;构造函数&quot;)
+        // 初始化了我们的state，这是被推荐的写法
+        this.state = {
+            props1:&quot;初始化state&quot;
+        }
+    }
+
+    static defaultProps = {
+        autoPlay: false,
+        maxLoops: 10,
+    }
+
+    // 组件将要被渲染到真实的dom节点中
+    componentWillMount(){
+        console.log(&quot;componentWillMount - 组件将要被渲染到真实的dom&quot;);
+    }
+    // 组件已经插入到真实的dom节点中
+    componentDidMount(){
+        console.log(&quot;componentDidMount - 组件已经插入到真实的dom&quot;);
+    }
+    // 组件是否要被重新渲染
+    shouldComponentUpdate(){
+        console.log(&quot;shouldCompontentUpdate - 判断组件是否要被重新渲染&quot;);
+        return true;
+    }
+    // 组件将要被重新渲染
+    componentWillUpdate(){
+        console.log(&quot;conpontentWillUpdate - 组件将要被重新渲染&quot;);
+    }
+    // 组件已经被重新渲染
+    componentDidUpdate(){
+        console.log(&quot;conpontentDidUpdate - 组件已经被重新渲染&quot;);
+    }
+    // 组件将要接受到新属性
+    componentWillReceiveProps(){
+        console.log(&quot;compintentWillReceiveProps - 组件将要接受到新属性&quot;);
+    }
+    click1 = ()=&gt;{
+        console.log(&quot;点击了单击事件&quot;);
+        this.setState({
+            props1:&quot;改变state的值&quot;
+        })
+        console.log(&quot;点击了单击事件结束&quot;);
+    }
+    render() {
+        console.log(&quot;render&quot;);
+        return (
+            &lt;div&gt;
+                &lt;h1 onClick={this.click1}&gt;{this.state.props1}&lt;/h1&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+</code></pre><h3 id="es6-">ES6定义组件语法及注意事项</h3>
+<h4 id="-">语法规定</h4>
+<blockquote>
+<p>定义模块 </p>
+</blockquote>
+<pre><code>class Life extends Component
+</code></pre><blockquote>
+<p>导出模块</p>
+</blockquote>
+<pre><code>export default
+</code></pre><blockquote>
+<p>引入模块 </p>
+</blockquote>
+<pre><code>import Life from &#39;../example/Life.js&#39;
+</code></pre><blockquote>
+<p>默认属性</p>
+</blockquote>
+<pre><code>static defaultProps = {
+     autoPlay: false,
+     maxLoops: 10,
+};
+</code></pre><blockquote>
+<p>默认state</p>
+</blockquote>
+<pre><code>// 构造函数
+constructor(props){
+    super(props)
+    // 初始化state
+    this.state = {
+        props1:&quot;初始化state&quot;
+    }
+}
+</code></pre><blockquote>
+<p>定义方法</p>
+</blockquote>
+<ul>
+<li><p>生命周期方法直接方法名小括号</p>
+<pre><code>  componentWillMount(){
+      console.log(&quot;componentWillMount - 组件将要被渲染到真实的dom&quot;);
+  }
+</code></pre></li>
+<li><p>自定义方法使用箭头函数</p>
+<pre><code>  click1 = ()=&gt;{
+      console.log(&quot;点击了单击事件&quot;);
+      this.setState({
+          props1:&quot;改变state的值&quot;
+      })
+      console.log(&quot;点击了单击事件结束&quot;);
+  }
+</code></pre></li>
+</ul>
+<h4 id="-">注意事项</h4>
+<blockquote>
+<p>箭头函数转ES5需要额外安装插件</p>
+</blockquote>
+<pre><code>npm install --save-dev babel-preset-stage-0
+npm install --save-dev babel-plugin-transform-class-properties
+</code></pre><blockquote>
+<p>下面两种事件函数，一种直接函数名小括号，一种是箭头函数
+在给具体元素绑定函数时，箭头函数依旧需要使用一个箭头函数来绑定
+函数名小括号形式在绑定时需要绑定this</p>
+</blockquote>
+<pre><code>// 单击事件处理方法
+handleClick(pm1,pm2,pm3,e) {
+    console.log(pm1); // 23
+    console.log(pm2); // dfdf
+    console.log(pm3); // function
+    console.log(e); // event
+    this.setState({ liked: !this.state.liked });
+}
+
+// 用箭头函数去定义自己的方法
+handleMouseOver=(str)=&gt;{
+    console.log(str);
+}
+
+render() {
+    const text = this.state.liked ? &#39;like&#39; : &#39;haven\&#39;t liked&#39;;
+    // return；里面是要渲染的html页面
+    return (
+        &lt;p onMouseOver={()=&gt;this.handleMouseOver(&quot;代码&quot;)} onClick={this.handleClick.bind(this,23,&quot;dfdf&quot;,function(){})}&gt;
+            You {text} this. Click to toggle.
+        &lt;/p&gt;
+    );
+}
+</code></pre><h3 id="-dom">获取真实DOM</h3>
+<blockquote>
+<p>下面代码中，组件 <code>MyComponent</code> 的子节点有一个文本输入框，用于获取用户的输入。这时就必须获取真实的 <code>DOM</code> 节点，虚拟 <code>DOM</code> 是拿不到用户输入的。为了做到这一点，文本输入框必须有一个 <code>ref</code> 属性，然后 <code>this.refs.[refName]</code> 就会返回这个真实的 <code>DOM</code> 节点。</p>
+<p>需要注意的是，由于 <code>this.refs.[refName]</code> 属性获取的是真实 <code>DOM</code> ，所以必须等到虚拟 <code>DOM</code> 插入文档以后，才能使用这个属性，否则会报错。下面代码中，通过为组件指定 <code>Click</code> 事件的回调函数，确保了只有等到真实 <code>DOM</code> 发生 <code>Click</code> 事件之后，才会读取 <code>this.refs.[refName]</code> 属性</p>
+<p><strong>总结:</strong></p>
+<ol>
+<li>真实<code>DOM</code>节点必须等待虚拟<code>DOM</code>被插入文档以后才可以使用，即执行了<code>componentDidMount</code>函数后才能被获取。</li>
+<li>给真实DOM标签添加ref属性:<code>ref = &quot;refName&quot;</code></li>
+<li>使用<code>this.refs.[refName]</code>获取真实<code>DOM</code></li>
+</ol>
+</blockquote>
+<pre><code>var MyComponent = React.createClass({
+  handleClick: function() {
+    // 使用原生的 DOM API 获取焦点
+    this.refs.myInput.focus();
+  },
+  render: function() {
+    //  当组件插入到 DOM 后，ref 属性添加一个组件的引用于到 this.refs
+    return (
+      &lt;div&gt;
+        &lt;input type=&quot;text&quot; ref=&quot;myInput&quot; /&gt;
+        &lt;input
+          type=&quot;button&quot;
+          value=&quot;点我输入框获取焦点&quot;
+          onClick={this.handleClick}
+        /&gt;
+      &lt;/div&gt;
+    );
+  }
+});
+
+ReactDOM.render(
+  &lt;MyComponent /&gt;,
+  document.getElementById(&#39;example&#39;)
+);
+</code></pre><h3 id="dom-">DOM事件监听</h3>
+<blockquote>
+<ol>
+<li>注册事件监听的位置必须在<code>componentDidMount</code>之后,即真实DOM被渲染之后</li>
+<li>组件销毁时需要注销事件监听函数</li>
+<li>发送Ajax请求也应该在<code>componentDidMount</code>事件内部</li>
+</ol>
+</blockquote>
+<pre><code>componentDidMount() {
+    // 1、在已经插入到真实的dom节点之后，注册窗体改变大小的事件监听
+    // 3、用ajax发起数据请求的操作也要在componentDidMount方法里面去调用
+    window.addEventListener(&#39;resize&#39;, this.handleResize);
+}
+
+componentWillUnmount() {
+    // 2、在组件将要被卸载的时候移除监听事件，防止对其他组件的影响
+    window.removeEventListener(&#39;resize&#39;, this.handleResize);
+}
+</code></pre><h3 id="-">属性校验</h3>
+<blockquote>
+<p>随着应用不断变大，保证组件被正确使用变得非常有用。为此我们引入<code>propTypes</code>。<code>React.PropTypes</code> 提供很多验证器 (<code>validator</code>) 来验证传入数据的有效性。当向 <code>props</code> 传入无效数据时，JavaScript 控制台会抛出警告。注意为了性能考虑，只在开发环境验证 <code>propTypes</code></p>
+<p>可校验属性:<a href="http://www.reactjs.cn/react/docs/reusable-components.html">http://www.reactjs.cn/react/docs/reusable-components.html</a></p>
+</blockquote>
+<h4 id="-">语法</h4>
+<pre><code>// 进行属性校验
+export default class PropsCheck extends Component {
+    constructor(props) {
+        super(props);
+    }
+    // 进行属性校验
+    static propTypes = {
+        autoPlay: React.PropTypes.bool.isRequired,
+        maxLoops: React.PropTypes.number.isRequired
+        // ... 其他属性校验
+    }
+}
+</code></pre><h4 id="-">使用</h4>
+<blockquote>
+<p>添加了属性校验的组件,在使用时如果这些属性没有设置，就会报警告</p>
+</blockquote>
+<h3 id="-">受控表单组件</h3>
+<blockquote>
+<p>受控组件就是为某个form表单组件添加value属性；</p>
+</blockquote>
+<pre><code>render: function() {
+    return &lt;input type=&quot;text&quot; value=&quot;Hello!&quot; /&gt;;
+}
+</code></pre><blockquote>
+<p>非受控组件就是没有添加value属性的组件；</p>
+</blockquote>
+<pre><code>&lt;input type=&quot;text&quot; /&gt;
+</code></pre><blockquote>
+<p><code>注意</code>:一旦设置了value属性的表单组件,即受控表单组件，用户交互将不能直接改变表单的内容。必须通过<code>setState</code>改变表单的状态来控制表单显示内容。</p>
+<p>所以一般定义一个受控表单组件，可以如下</p>
+</blockquote>
+<pre><code>export default class InputItem extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            value: &quot;&quot;
+        }
+    }
+
+    componentWillReceiveProps(nextProps){
+        this.setState({
+            value: nextProps.value
+        })
+    }
+
+    _onChange(e){
+        this.setState({
+            value: e.target.value
+        })
+    }
+
+    render(){
+        return (
+            &lt;input type=&quot;text&quot; 
+                value={this.state.value} 
+                onChange={this._onChange.bind(this)}/&gt;
+        );
+    }
+}
+</code></pre><h3 id="-">组合组件</h3>
+<h4 id="-">概念</h4>
+<blockquote>
+<p>在编程的时候碰到相同的功能，可以通过抽出公共方法或者类来实现复用。当我们构建新的组件的时候，尽量保持我们的组件同业务逻辑分离，将相同功能的组件抽出一个组件库，通过复用这些组件库来提高我们代码的重用性。</p>
+<p>在 <code>React</code> 组件中要包含其他组件作为子组件，只需要把组件当作一个 <code>DOM</code> 元素引入就可以了。</p>
+</blockquote>
+<h4 id="-">循环插入子元素</h4>
+<blockquote>
+<p>如果组件中包含通过循环插入的子元素，为了保证重新渲染 <code>UI</code> 的时候能够正确显示这些子元素，每个元素都需要通过一个特殊的 <code>key</code> 属性指定一个唯一值。</p>
+</blockquote>
+<pre><code>// 循环生成列表组件
+class TodoList extends Component{
+    render() {
+        let createItem = function(item) {
+            // 为每一个元素添加一个key值
+            return &lt;li key={item.id}&gt;{item.text}&lt;/li&gt;;
+        };
+        return &lt;ul&gt;{this.props.items.map(createItem)}&lt;/ul&gt;;
+    }
+}
+</code></pre><h1 id="-app-">移动APP第三天</h1>
+<h2 id="-">属性传递</h2>
+<h3 id="props-">props属性传递</h3>
+<blockquote>
+<p>在组合组件中，如果父组件向子孙组件传递属性，传统方式可以通过<code>props</code>属性一层一层传递</p>
+</blockquote>
+<pre><code>class TodoApp extends Component {
+    constructor(props) {
+        super(props);
+        // 初始化了我们的state，这是被推荐的写法
+        this.state = {
+            items: [],// 存我们输入的数据
+            text: &#39;&#39;  // 每次输入文本
+        };
+    }
+    render() {
+        return (
+            &lt;div&gt;
+                &lt;h3&gt;TODO&lt;/h3&gt;
+                // 给TodoList组件添加了一个items属性
+                &lt;TodoList items={this.state.items} /&gt;
+            &lt;/div&gt;
+        );
+    }
+}
+
+class TodoList extends Component {
+    render() {
+        let createItem = function (item) {
+            return &lt;li key={item.id}&gt;{item.text}&lt;/li&gt;;
+        };
+        // this.props.items 获取父组件传递过来的数据
+        return &lt;ul&gt;{this.props.items.map(createItem)}&lt;/ul&gt;;
+    }
+}
+</code></pre><blockquote>
+<p>上面的代码，如果我们想把当前<code>TodoApp</code> 组件内部的<code>items</code>数组传递给子组件<code>TodoList</code>，需要在使用<code>TodoList</code>组件时添加一个属性，将<code>items</code>数组传递过去。在<code>TodoList</code>组件内部可以使用<code>this.props.items</code>获取到传递过来的数据。</p>
+</blockquote>
+<h3 id="context-">context属性传递</h3>
+<blockquote>
+<p>如果组件嵌套太深，<code>props</code>的传递方式会增加组件的依赖，每个组件之间最好是低耦合的，所以我们可以使用<code>context</code>属性实现组件之间数据的传递。</p>
+</blockquote>
+<h4 id="-">基本使用</h4>
+<blockquote>
+<p>父组件中通过<code>getChildContext</code>设置需要传递的属性,同时需要使用<code>childContextTypes</code>设置传递的属性校验</p>
+</blockquote>
+<pre><code>// 通过这个方法去传递属性
+getChildContext: function() {
+    return {
+        color: &quot;red&quot;,
+        age:12
+    };
+},
+// 传递给子孙属性的类型校验
+childContextTypes: {
+    color: React.PropTypes.string,
+    age: React.PropTypes.number
+}
+</code></pre><blockquote>
+<p>子组件接收传递过来的属性必须使用<code>contextTypes</code>接收，然后通过<code>this.context.[prop]</code>即可使用传递过来的属性</p>
+</blockquote>
+<pre><code>// 在子组件里面接收并校验父组件里面的属性
+contextTypes: {
+    color: React.PropTypes.string
+}
+
+// 使用
+this.context.color
+</code></pre><h2 id="-">显示隐藏动画效果</h2>
+<blockquote>
+<p>React动画效果主要是指组件显示和移除时的一些过度动画</p>
+</blockquote>
+<h3 id="-">使用</h3>
+<ol>
+<li><p>引入动画库和动画样式 </p>
+<pre><code> import ReactCSSTransitionGroup from &#39;react-addons-css-transition-group&#39;
+
+ import &#39;./animate.css&#39;
+</code></pre></li>
+<li><p>使用<code>ReactCSSTransitionGroup</code>包裹需要执行动画的元素</p>
+<pre><code> return (
+     &lt;div&gt;
+         &lt;button onClick={this.handleAdd}&gt;Add Item1&lt;/button&gt;
+         {/*这个组件虽然叫动画，但是它只负责显示隐藏的动画*/}
+         {/*你想让谁有显示隐藏的动画你就用ReactCSSTransitionGroup包裹谁*/}
+         {/*后添加进去的元素和删除的元素才有动画效果，同时添加元素和ReactCSSTransitionGroup是没有动画效果的*/}
+         &lt;ReactCSSTransitionGroup
+             component=&quot;div&quot; // 设置被包裹的父元素
+             transitionName=&quot;example&quot; // 动画样式类名前缀
+             transitionAppear={true} // 设置默认出现的元素动画
+             transitionEnterTimeout={500}
+             transitionLeaveTimeout={300}
+         &gt;
+             {items}
+         &lt;/ReactCSSTransitionGroup&gt;
+     &lt;/div&gt;
+ );
+</code></pre></li>
+<li><p>设置css动画样式</p>
+<pre><code> // animate.css
+ /*-enter是进入的时候的初始状态*/
+ .example-enter {
+     opacity: 0.01;
+ }
+ /*-enter-active是进入时候的结束状态*/
+ .example-enter.example-enter-active {
+     opacity: 1;
+     transition: opacity 500ms ease-in;
+ }
+
+ // 离开时候的初始状态
+ .example-leave {
+     opacity: 1;
+ }
+
+ // 离开时候的结束状态
+ .example-leave.example-leave-active {
+     opacity: 0.01;
+     transition: opacity 300ms ease-in;
+ }
+
+ // 默认元素出现时的初始状态
+ .example-appear {
+     opacity: 0.01;
+ }
+
+ // 默认元素出现时的结束状态
+ .example-appear.example-appear-active {
+     opacity: 1;
+     transition: opacity .5s ease-in;
+ }
+</code></pre></li>
+</ol>
+<h2 id="-">插件介绍</h2>
+<blockquote>
+<p><a href="https://js.coach/">https://js.coach/</a></p>
+<p><a href="https://react.parts/">https://react.parts/</a></p>
+</blockquote>
+<h2 id="diff-">diff算法</h2>
+<p><img src="media/14901082258991/1489587651000.png" alt="1489587651000"></p>
+<p><img src="media/14901082258991/20161024141813_118.png" alt="20161024141813_118"></p>
+<h2 id="-">项目分析</h2>
+<h3 id="-">分析需求</h3>
+<p><img src="media/14901082258991/1490104049873.png" alt="1490104049873"></p>
+<p><img src="media/14901082258991/1490104096197.png" alt="1490104096197"></p>
+<h3 id="-">确定技术栈</h3>
+<blockquote>
+<p><code>webpack + react +react-router + fetch + sass + Flex + ES6</code></p>
+</blockquote>
+<h2 id="-">路由</h2>
+<blockquote>
+<p>采用<code>react-router</code>： <a href="http://react-guide.github.io/react-router-cn/">http://react-guide.github.io/react-router-cn/</a></p>
+</blockquote>
+<h3 id="-">路由基础实现</h3>
+<ol>
+<li><p>安装<code>react-router</code></p>
+<pre><code> npm install react-router -save
+</code></pre></li>
+<li><p>组件分离</p>
+<pre><code> entry: {
+     app: path.resolve(__dirname, &#39;src/js/app.js&#39;),
+     // 需要分离的第三方包名写在数组中
+     vendors: [&#39;react&#39;, &#39;react-dom&#39;,&#39;react-router&#39;]
+ }
+</code></pre></li>
+<li><p>引入<code>Router</code></p>
+<pre><code> import React from &#39;react&#39;
+ import { Router, Route, Link ,hashHistory} from &#39;react-router&#39;
+</code></pre></li>
+<li><p>路由代码</p>
+<pre><code> render() {
+     return (
+         &lt;Router history={hashHistory}&gt;
+             &lt;Route path=&quot;/&quot; component={AppContainer}&gt;
+                 &lt;Route path=&quot;home&quot; component={HomeContainer} /&gt;
+                 &lt;Route path=&quot;movie&quot; component={MovieContainer}&gt;
+                     &lt;Route path=&quot;movieList&quot; component={MovieListContainer} /&gt;
+                     &lt;Route path=&quot;movieDetail&quot; component={MovieDetailContainer} /&gt;
+                     &lt;Route path=&quot;movieSearch&quot; component={MovieSearchContainer} /&gt;
+                 &lt;/Route&gt;
+                 &lt;Route path=&quot;about&quot; component={AboutContainer} /&gt;
+             &lt;/Route&gt;
+         &lt;/Router&gt;
+     );
+ }
+</code></pre></li>
+<li><p>组件代码</p>
+<pre><code>render() {
+    return (
+        &lt;div&gt;
+            根容器组件
+            &lt;div&gt;
+                &lt;Link to=&#39;/home&#39;&gt;首页&lt;/Link&gt;
+                &lt;Link to=&#39;/movie&#39;&gt;电影&lt;/Link&gt;
+                &lt;Link to=&#39;/about&#39;&gt;关于我们&lt;/Link&gt;
+                &lt;Link to=&#39;/movie/movieList&#39;&gt;电影列表&lt;/Link&gt;
+                &lt;Link to=&#39;/movie/movieDetail&#39;&gt;电影详细&lt;/Link&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                {this.props.children}
+            &lt;/div&gt;
+        &lt;/div&gt;
+    );
+}
+</code></pre></li>
+<li><p>设置默认页面</p>
+<pre><code> &lt;Route path=&quot;/&quot; component={AppContainer}&gt;
+     // 当URL为 / 时渲染 HomeContainer
+     &lt;IndexRoute component={HomeContainer} /&gt;
+ &lt;/Route&gt;
+</code></pre></li>
+</ol>
+<h3 id="-">绝对路由&amp;路由重定向</h3>
+<blockquote>
+<p>解决路由层次嵌套过深问题</p>
+</blockquote>
+<p><img src="media/14901082258991/1489650487525.png" alt="1489650487525"></p>
+<blockquote>
+<p>兼容旧路由-路由重定向</p>
+</blockquote>
+<pre><code>// 兼容旧路由
+&lt;Redirect from = &#39;movieList&#39; to=&#39;/movieList&#39;&gt;&lt;/Redirect&gt;
+</code></pre><h3 id="-">进入/离开路由钩子</h3>
+<blockquote>
+<p> <code>onEnter</code> 和 <code>onLeave</code> 两个 <code>hook</code> ，在路由跳转过程中，<code>onLeave hook</code> 会在所有将离开的路由中触发，<code>onEnter hook</code> 会在所有进入的路由中触发。</p>
+</blockquote>
+<pre><code>&lt;Route path=&quot;home&quot;
+    component={HomeContainer}
+    onEnter={()=&gt;{console.log(&#39;进入了HomeContainer&#39;)}}
+    onLeave={()=&gt;{console.log(&#39;离开了HomeContainer&#39;)}}
+/&gt;
+</code></pre><h2 id="-">路径语法</h2>
+<blockquote>
+<p>路由路径是匹配一个（或一部分）URL 的 一个字符串模式。大部分的路由路径都可以直接按照字面量理解，除了以下几个特殊的符号：</p>
+<ul>
+<li><code>:paramName</code> 匹配一段位于 /、? 或 # 之后的 URL。 命中的部分将被作为一个参数</li>
+<li><code>()</code> 在它内部的内容被认为是可选的</li>
+<li><code>*</code> 匹配任意字符（非贪婪的）直到命中下一个字符或者整个 URL 的末尾，并创建一个 splat 参数</li>
+</ul>
+</blockquote>
+<pre><code>&lt;Route path=&quot;/hello/:name&quot;&gt;         // 匹配 /hello/michael 和 /hello/ryan
+&lt;Route path=&quot;/hello(/:name)&quot;&gt;       // 匹配 /hello, /hello/michael 和 /hello/ryan
+&lt;Route path=&quot;/files/*.*&quot;&gt;           // 匹配 /files/hello.jpg 和 /files/path/to/hello.jpg
+</code></pre><h2 id="-history">三种history</h2>
+<h3 id="hashhistory">hashHistory</h3>
+<blockquote>
+<p>可以兼容低版本浏览器,路径后面带有<code>#</code>
+<code>http://localhost:8080/#/movieDetail</code></p>
+</blockquote>
+<h3 id="browserhistory">browserHistory</h3>
+<blockquote>
+<p>使用最新 <code>HTML5</code> 的 <code>history API</code>,路由不带<code>#</code>
+<code>http://localhost:8080/movieDetail</code></p>
+</blockquote>
+<h3 id="creatememoryhistory">createMemoryHistory</h3>
+<blockquote>
+<p>在做服务端渲染时使用 <code>createMemoryHistory</code></p>
+</blockquote>
+<h2 id="-">组件生命周期</h2>
+<blockquote>
+<p>组件跳转时的生命周期基本和组件生命周期一致，进入到一个组件，那么上一个组件被销毁，新的组件被渲染。如组件A-&gt;组件B:
+A: <code>componentWillUnmount</code> 销毁A组件
+B: <code>componentDidMount</code> 渲染B组件</p>
+</blockquote>
+<h2 id="-">组件外跳转</h2>
+<blockquote>
+<p>在<code>HTML</code>部分可以使用<code>Link</code>跳转，有时需要在JS内跳转，则需要使用<code>browserHistory</code>的<code>push</code>方法，或者<code>this.context.router</code>来实现</p>
+</blockquote>
+<h3 id="browserhistory">browserHistory</h3>
+<pre><code>import { Router, browserHistory } from &#39;react-router&#39;
+// 执行跳转
+browserHistory.push(&#39;/home&#39;)
+</code></pre><h3 id="this-context-router">this.context.router</h3>
+<pre><code>// 获取router
+static contextTypes = {
+    router:React.PropTypes.object
+}
+
+// 组件渲染完毕的方法中进行跳转
+componentDidMount(){
+    this.context.router.push(&#39;/home&#39;)
+}
+</code></pre><h2 id="-">基本布局</h2>
+<p><img src="media/14901082258991/1489721225132.png" alt="1489721225132"></p>
+<p><img src="media/14901082258991/1489721299390.png" alt="1489721299390"></p>
+<h2 id="flex-box">Flex-box</h2>
+<blockquote>
+<p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html">http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a></p>
+</blockquote>
+<h2 id="-">电影页面布局</h2>
+<blockquote>
+<p><code>MovieContainer</code></p>
+</blockquote>
+<h3 id="jsx-">JSX页面</h3>
+<pre><code>render() {
+    return (
+        &lt;div className=&#39;movie_container&#39;&gt;
+            &lt;div className=&#39;movie_menu&#39;&gt;
+                &lt;a href=&quot;&quot;&gt;正在热映&lt;/a&gt;
+                &lt;a href=&quot;&quot;&gt;即将上映&lt;/a&gt;
+                &lt;a href=&quot;&quot;&gt;TOP250&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div className=&#39;movie_right&#39;&gt;
+                &lt;div className=&#39;movie_search&#39;&gt;
+                    &lt;input type=&quot;text&quot;/&gt;
+                    &lt;button&gt;搜索&lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div className=&#39;movie_content&#39;&gt;
+                    {this.props.children}
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    );
+}
+</code></pre><h3 id="css-">CSS样式</h3>
+<pre><code>.movie_container {
+    height: 100%;
+    display: flex;
+}
+.movie_menu {
+    width: 20%;
+    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.movie_menu a {
+    color: white;
+    padding-top: 1.5rem;
+}
+.movie_menu a:hover {
+    color: red;
+    font-weight: 700;
+}
+.movie_right {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+.movie_search {
+    height: 2rem;
+    background-color:lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.movie_search input {
+    width: 75%;
+    border-radius: 30px 0 0 30px;
+    text-indent: .5rem;
+}
+.movie_content {
+    flex: 1;
+    background-color: palegoldenrod;
+}
+</code></pre><h1 id="-app-">移动APP第四天</h1>
+<h2 id="-">用户提示遮罩效果</h2>
+<blockquote>
+<p>关键: 用一个状态属性 <code>isLoading</code>控制渲染那个页面，改变<code>isLoading</code>就可以造成页面的重新渲染</p>
+</blockquote>
+<pre><code>constructor(props) {
+    super(props);
+    this.state = {
+        isLoading:true
+    }
+}
+// render方法执行完毕 页面已经被加载
+componentDidMount(){
+    const _this = this;
+    setTimeout(function() {
+        _this.setState({
+            isLoading:false
+        })
+    }, 3000); 
+}
+renderLoading=()=&gt;{
+    return (
+        &lt;div&gt;
+            正在加载数据....
+        &lt;/div&gt;
+    )
+}
+renderMovieList=()=&gt;{
+    return (
+        &lt;div&gt;
+            渲染电影列表
+        &lt;/div&gt;
+    )
+}
+render() {
+    if(this.state.isLoading){
+        return this.renderLoading()
+    }else{
+        return this.renderMovieList()
+    }
+}
+</code></pre><h2 id="fetch-">fetch的使用</h2>
+<blockquote>
+<p>Fetch API提供了一个fetch()方法，它被定义在BOM的window对象中，你可以用它来发起对远程资源的请求。 该方法返回的是一个ES6的Promise对象，让你能够对请求的返回结果进行检索。 它是 W3C 的正式标准。</p>
+</blockquote>
+<h3 id="get-">get请求</h3>
+<pre><code>// 本地json文件
+fetch(&quot;/data.json&quot;).then(function(res) {
+  // res instanceof Response == true.
+  if (res.ok) {
+    res.json().then(function(data) {
+      console.log(data.entries);
+    });
+  } else {
+    console.log(&quot;Looks like the response wasn&#39;t perfect, got status&quot;, res.status);
+  }
+}, function(e) {
+  console.log(&quot;Fetch failed!&quot;, e);
+});
+
+
+// 服务器数据
+fetch(&#39;http://nero-zou.com/test.json&#39;)  
+    .then((response) =&gt; {
+        if (response.ok) {
+            return response.json()
+        } else {
+            console.error(&#39;服务器繁忙，请稍后再试；\r\nCode:&#39; + response.status)
+        }
+    })
+    .then((data) =&gt; {
+        console.log(data)
+    })
+    .catch((err)=&gt; {
+        console.error(err)
+    })
+</code></pre><h3 id="post-">post请求</h3>
+<pre><code>fetch(&#39;/users&#39;, {
+  method: &#39;post&#39;,
+  headers: {
+    &#39;Accept&#39;: &#39;application/json&#39;,
+    &#39;Content-Type&#39;: &#39;application/json&#39;
+  },
+  body: JSON.stringify({
+    name: &#39;Hubot&#39;,
+    login: &#39;hubot&#39;,
+  })
+})
+
+fetch(&quot;http://www.example.org/submit.php&quot;, {
+  method: &quot;POST&quot;,
+  headers: {
+    &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;
+  },
+  body: &quot;firstName=Nikhil&amp;favColor=blue&amp;password=easytoguess&quot;
+}).then(function(res) {
+  if (res.ok) {
+    alert(&quot;Perfect! Your settings are saved.&quot;);
+  } else if (res.status == 401) {
+    alert(&quot;Oops! You are not authorized.&quot;);
+  }
+}, function(e) {
+  alert(&quot;Error submitting form!&quot;);
+})
+</code></pre><h3 id="-">上传文件</h3>
+<pre><code>var input = document.querySelector(&#39;input[type=&quot;file&quot;]&#39;)
+
+var data = new FormData()
+data.append(&#39;file&#39;, input.files[0])
+data.append(&#39;user&#39;, &#39;hubot&#39;)
+
+fetch(&#39;/avatars&#39;, {
+  method: &#39;post&#39;,
+  body: data
+})
+</code></pre><h2 id="-">搭建服务器</h2>
+<blockquote>
+<p>重新创建一个<code>douban_service</code>项目，安装<code>express</code>搭建服务器</p>
+</blockquote>
+<h3 id="-">基本搭建</h3>
+<blockquote>
+<p>安装<code>express</code>搭建服务器</p>
+</blockquote>
+<pre><code>npm install express --save
+</code></pre><blockquote>
+<p>安装<code>nodemon</code>自动重启服务器</p>
+</blockquote>
+<pre><code>npm install nodemon -g
+</code></pre><blockquote>
+<p>配置<code>index.js</code></p>
+</blockquote>
+<pre><code>const express = require(&#39;express&#39;)
+
+const app = express();
+
+app.get(&#39;/&#39;,function(req,res,next){
+    res.send(&#39;数据已经返回&#39;)
+})
+
+const server = app.listen(&#39;3008&#39;,function(){
+    console.log(&#39;服务器已启动,正在监听3008端口..&#39;)
+})
+</code></pre><blockquote>
+<p>开启服务器</p>
+</blockquote>
+<pre><code>nodemon index.js
+</code></pre><p><img src="media/14901088840841/1489737956288.png" alt="1489737956288"></p>
+<h3 id="-api-">请求豆瓣API数据</h3>
+<blockquote>
+<p>豆瓣API : <a href="https://developers.douban.com/wiki/?title=guide">https://developers.douban.com/wiki/?title=guide</a>
+正在热映: <a href="https://api.douban.com/v2/movie/in_theaters?start=3&amp;count=10">https://api.douban.com/v2/movie/in_theaters?start=3&amp;count=10</a>
+即将上映: <a href="https://api.douban.com/v2/movie/coming_soon?start=6&amp;count=10">https://api.douban.com/v2/movie/coming_soon?start=6&amp;count=10</a>
+TOP250: <a href="https://api.douban.com/v2/movie/top250?start=6&amp;count=10">https://api.douban.com/v2/movie/top250?start=6&amp;count=10</a>
+详细数据: <a href="https://api.douban.com/v2/movie/subject/1764796">https://api.douban.com/v2/movie/subject/1764796</a>
+搜索数据: <a href="https://api.douban.com/v2/movie/search?q={text}">https://api.douban.com/v2/movie/search?q={text}</a></p>
+</blockquote>
+<h4 id="-request-">使用request请求第三方数据</h4>
+<blockquote>
+<p>安装<code>request</code></p>
+</blockquote>
+<pre><code>npm install request --save
+</code></pre><blockquote>
+<p>引入<code>request</code></p>
+</blockquote>
+<pre><code>const request = require(&#39;request&#39;)
+</code></pre><blockquote>
+<p>使用<code>request</code>发送请求</p>
+</blockquote>
+<pre><code>app.get(&#39;/getMovieListData&#39;, function (req, res, next) {
+    const url = &#39;https://api.douban.com/v2/movie/in_theaters?start=3&amp;count=10&#39;
+
+    request(url, function (error, response, body) {
+        if(!error&amp;&amp;response.statusCode == 200){
+            res.json(body)
+        }
+    });
+})
+</code></pre><h3 id="-">数据接口配置文件</h3>
+<blockquote>
+<p>真实开发中会有测试服务器地址和线上服务器地址,所以一般接口信息写在单独的配置文件中</p>
+</blockquote>
+<pre><code>export default {
+    SERVER_PATH:&#39;127.0.0.1&#39;,
+    PORT:&#39;3008&#39;,
+    HTTP:&#39;http://&#39;,
+    VERSION:&#39;1.0.0&#39;
+}
+</code></pre><h3 id="cors-">CORS解决跨域请求</h3>
+<blockquote>
+<p>客户端8080端口请求服务端3008端口，可以在服务端配置请求头使用CORS解决跨域</p>
+</blockquote>
+<pre><code>// 实现cors跨域
+app.use(function (req,res,next) {
+    res.header(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);
+    res.header(&quot;Access-Control-Allow-Headers&quot;, &quot;Content-Type,Content-Length, Authorization, Accept,X-Requested-With&quot;);
+    res.header(&quot;Access-Control-Allow-Methods&quot;,&quot;PUT,POST,GET,DELETE,OPTIONS&quot;);
+    next()
+})
+</code></pre><h3 id="-">客户端请求数据</h3>
+<blockquote>
+<p>在APP中访问<code>movie</code>路由请求数据
+<code>MovieService</code>中使用<code>fetch</code>发起请求</p>
+</blockquote>
+<pre><code>getMovieListData() {
+    // 拼接请求路径
+    const url = `${config.HTTP}${config.SERVER_PATH}${config.PORT}/getMovieListData`
+
+    fetch(url)
+        .then((response) =&gt; {
+            if (response.ok) {
+                return response.json()
+            } else {
+                console.error(&#39;服务器繁忙，请稍后再试；\r\nCode:&#39; + response.status)
+            }
+        })
+        .then((data) =&gt; {
+            console.log(data)
+        })
+        .catch((err) =&gt; {
+            console.error(err)
+        })
+}
+</code></pre><p><img src="media/14901088840841/1489826196901.png" alt="1489826196901"></p>
+<h2 id="-">渲染电影列表</h2>
+<h3 id="promise-">Promise处理返回数据</h3>
+<blockquote>
+<p>promise实例对象通用代码</p>
+</blockquote>
+<pre><code>var promise = new Promise(function(resolve, reject) {
+  // ... some code
+  if (/* 异步操作成功 */){
+    resolve(value);
+  } else {
+    reject(error);
+  }
+});
+</code></pre><h4 id="-promise-">返回promise对象</h4>
+<pre><code>return new Promise(function(resove,reject){
+    fetch(url)
+    .then((response) =&gt; {
+        if (response.ok) {
+            return response.json()
+        } else {
+            console.error(&#39;服务器繁忙，请稍后再试；\r\nCode:&#39; + response.status)
+        }
+    })
+    .then((data) =&gt; {
+        // 请求成功调用resove
+        resove(data)
+        // console.log(data)
+    })
+    .catch((err) =&gt; {
+        // 请求失败调用reject
+        reject(err)
+        // console.error(err)
+    })
+})
+</code></pre><h4 id="-promise-">接收promise对象数据</h4>
+<pre><code>fetch=()=&gt;{
+       // 接收promise对象数据
+       const promise = service.getMovieListData()
+       // 处理数据
+       promise.then(
+           function(data){
+               console.log(data)
+           },
+           function(err){
+               console.log(err)
+           }
+       ).catch(function(err){
+           console.log(err)
+       })
+}
+</code></pre><h3 id="-">渲染页面</h3>
+<ol>
+<li><p>改变<code>state</code>，去掉遮罩，存储数据</p>
+<p> <img src="media/14901088840841/1489829241737.png" alt="1489829241737"></p>
+</li>
+<li><p><code>render</code>中渲染页面</p>
+<pre><code> // 渲染电影列表
+ renderMovieList = ()=&gt; {
+     return (
+         &lt;div&gt;
+             {this.state.movieListData.map(this.renderItem)}
+         &lt;/div&gt;
+     )
+ }
+
+ // 渲染每一行数据
+ renderItem = (item)=&gt;{
+     return (
+         // 循环渲染子组件指定KEY
+         &lt;div key={item.id}&gt;
+             &lt;img src={item.images.small} alt=&quot;&quot;/&gt;
+             &lt;div&gt;
+                 &lt;h1&gt;{item.title}&lt;/h1&gt;
+                 &lt;span&gt;{item.year}&lt;/span&gt;
+             &lt;/div&gt;
+         &lt;/div&gt;
+     )
+ };
+</code></pre></li>
+<li><p>添加样式</p>
+<p> <img src="media/14901088840841/1489831379903.png" alt="1489831379903"></p>
+</li>
+</ol>
+<h2 id="-">详细页面</h2>
+<h3 id="-">跳转详细页面</h3>
+<pre><code>// 获取router
+static contextTypes = {
+    router:React.PropTypes.object
+}
+
+// 跳转到详细页面
+goDetail=(id)=&gt;{
+    this.context.router.push(`/movie/movieDetail/${id}`)
+}
+
+// 绑定点击事件
+// 循环渲染子组件指定KEY
+&lt;div className=&#39;movieList_item&#39; key={item.id} onClick={()=&gt;this.goDetail(item.id)}&gt;
+    &lt;img src={item.images.small} alt=&quot;&quot;/&gt;
+    &lt;div&gt;
+        &lt;h1&gt;{item.title}&lt;/h1&gt;
+        &lt;span&gt;{item.year}&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre><h3 id="-">遮罩及初始化数据</h3>
+<pre><code>this.state = {
+    isLoading: true,
+    movieDetailData: {}
+}
+
+render() {
+        if (this.state.isLoading) {
+            return this.renderLoading()
+        } else {
+            return this.renderMovieDetail()
+        }
+}
+</code></pre><h3 id="-">请求详细页面数据</h3>
+<p><img src="media/14901088840841/1489842037697.png" alt="1489842037697"></p>
+<h3 id="-">渲染页面</h3>
+<blockquote>
+<p>HTML</p>
+</blockquote>
+<pre><code>renderMovieDetail = () =&gt; {
+    return (
+        &lt;div className=&#39;movieDetail_container&#39;&gt;
+            &lt;div className=&#39;movieDetail_image&#39;&gt;
+                &lt;img src={this.state.movieDetailData.images.large} alt=&quot;&quot;/&gt;
+            &lt;/div&gt;
+            &lt;h1&gt;{this.state.movieDetailData.title}&lt;/h1&gt;
+            &lt;p&gt;{this.state.movieDetailData.summary}&lt;/p&gt;
+        &lt;/div&gt;
+    )
+}
+</code></pre><blockquote>
+<p>CSS</p>
+</blockquote>
+<pre><code>.movieDetail_container {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.movieDetail_image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+</code></pre><h2 id="-">加载更多</h2>
+<h3 id="-">监听滚动事件</h3>
+<pre><code>// 组件更新函数
+componentDidUpdate(){
+    this.addEventListener()
+}
+
+// 添加监听滚动事件
+addEventListener=()=&gt;{
+    // 获取真实DOM节点
+    this.refs.scrollContainer.addEventListener(&#39;scroll&#39;,function(e){
+        console.log(e)
+    })
+}
+// 真实DOM上使用ref添加标记
+// 渲染电影列表
+renderMovieList = ()=&gt; {
+    return (
+        &lt;div ref=&#39;scrollContainer&#39; className=&#39;movieList_container&#39;&gt;
+            {this.state.movieListData.map(this.renderItem)}
+        &lt;/div&gt;
+    )
+}
+</code></pre><h3 id="-">判断滚动到底部</h3>
+<pre><code>if (e.target.scrollHeight == e.target.offsetHeight +parseInt(e.target.scrollTop)) {
+    console.log(&#39;滚动到底部了&#39;)
+    // 重新请求数据
+    _this.fetch();
+}
+</code></pre><h3 id="-">重新加载数据</h3>
+<blockquote>
+<p>重新加载数据需要重新发送请求，在赋值数据时需要判断原数组是否有数据，如果有则进行拼接数据</p>
+</blockquote>
+<p><img src="media/14901088840841/1489847196081.png" alt="1489847196081"></p>
+<h2 id="-">分页功能</h2>
+<h3 id="-">服务器代码</h3>
+<pre><code>// 电影列表
+app.get(&#39;/getMovieListData&#39;, function (req, res, next) {
+
+    // 获取传递的请求参数信息
+    const message = JSON.parse(req.query.message);
+    console.log(message)
+
+    const url = `https://api.douban.com/v2/movie/${message.movieType}?start=${message.start}&amp;count=${message.count}`
+
+    console.log(url)
+    request(url, function (error, response, body) {
+        if (!error &amp;&amp; response.statusCode == 200) {
+            res.json(body)
+        }
+    });
+})
+</code></pre><h3 id="-">后台接口代码</h3>
+<pre><code>// 获取电影列表
+getMovieListData(message) {
+    // 拼接请求路径
+    const url = `${config.HTTP}${config.SERVER_PATH}:${config.PORT}/getMovieListData?message=${message}`
+
+    console.log(url)
+    // 返回一个promise对象
+    return new Promise(function (resolve, reject) {
+        fetch(url)
+            .then((response) =&gt; {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    console.error(&#39;服务器繁忙，请稍后再试；\r\nCode:&#39; + response.status)
+                }
+            })
+            .then((data) =&gt; {
+                // 请求成功调用resolve
+                resolve(JSON.parse(data))
+                // console.log(data)
+            })
+            .catch((err) =&gt; {
+                // 请求失败调用reject
+                reject(err)
+                // console.error(err)
+            })
+    })
+}
+</code></pre><h3 id="-">组件代码</h3>
+<pre><code>// 请求电影列表数据
+fetch = (movieType) =&gt; {
+
+    // 深拷贝一份数组数据出来
+    let movieListData = [].concat(this.state.movieListData)
+
+    // 深拷贝一个对象
+    let message = Object.assign({}, this.state.message)
+    // 每次发送请求时改变请求参数
+    message.movieType = movieType
+    message.start = (message.pageIndex - 1) * message.count
+    message.pageIndex++
+
+    const _this = this
+    // 接收promise对象数据
+    const promise = service.getMovieListData(JSON.stringify(message))
+    // 处理数据
+    promise.then(
+        // 获取到数据
+        function (data) {
+            console.log(data)
+            // 判断是否已经有数据
+            if (movieListData.length &gt; 0) {
+                // 如果有数据 则将新数据进行拼接
+                movieListData = movieListData.concat(data.subjects)
+            } else {
+                // 没有数据直接赋值请求回来的数据
+                movieListData = data.subjects
+            }
+            _this.setState({
+                isLoading: false,
+                movieListData: movieListData,
+                message:message
+            })
+        },
+        function (err) {
+            console.log(err)
+        }
+    ).catch(function (err) {
+        console.log(err)
+    })
+}
+</code></pre><p><img src="media/14901088840841/1489850020736.png" alt="1489850020736"></p>
+<h3 id="-">分页功能完善</h3>
+<blockquote>
+<p>防止触发多次请求</p>
+</blockquote>
+<pre><code>// // 防止多次触发请求
+if (_this.state.isBottom) {
+    return;
+}
+// 标记已经滚动到底部
+_this.setState({
+    isBottom: true
+})
+// 重新请求数据
+_this.fetch(_this.state.message.movieType);
+</code></pre><blockquote>
+<p>显示提示信息</p>
+</blockquote>
+<pre><code>// 渲染电影列表
+renderMovieList = () =&gt; {
+    return (
+        &lt;div ref=&#39;scrollContainer&#39; className=&#39;movieList_container&#39;&gt;
+            {this.state.movieListData.map(this.renderItem)}
+            &lt;div className={this.state.isBottom?&quot;movieList_show&quot;:&quot;movieList_hide&quot;}&gt;
+                &lt;span&gt;正在请求数据,请稍等...&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    )
+}
+
+CSS:
+
+.movieList_show{
+    background-color: palevioletred;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.movieList_hide{
+    display: none;
+}
+</code></pre><h1 id="-app-">移动APP第五天</h1>
+<h2 id="-">电影类别切换</h2>
+<h3 id="-">传递类别信息</h3>
+<blockquote>
+<p><code>MovieContainer</code></p>
+</blockquote>
+<pre><code>&lt;div className=&#39;movie_menu&#39;&gt;
+    &lt;Link to=&quot;/movie/movieList/in_theaters&quot;&gt;正在热映&lt;/Link&gt;
+    &lt;Link to=&quot;/movie/movieList/coming_soon&quot;&gt;即将上映&lt;/Link&gt;
+    &lt;Link to=&quot;movie/movieList/top250&quot;&gt;TOP250&lt;/Link&gt;
+&lt;/div&gt;
+</code></pre><blockquote>
+<p><code>Routers</code></p>
+</blockquote>
+<pre><code>&lt;Route path=&quot;movieList/:movieType&quot; component={MovieListContainer} /&gt;
+</code></pre><blockquote>
+<p><code>MovieListContainer</code></p>
+</blockquote>
+<pre><code>// 生命周期函数：接收到参数时调用
+componentWillReceiveProps(nextProps){
+    // console.log(nextProps)
+    // 传递电影类别
+    this.fetch(nextProps.params.movieType)
+}
+</code></pre><h3 id="-">切换类别重置请求信息</h3>
+<pre><code>if (movieType != this.state.message.movieType) {
+    this.setState({
+        isLoading: true,
+        movieListData: [],
+        // 是否滚动到底部
+        isBottom: false,
+        // 请求参数
+        message: {
+            // 电影数据类型
+            movieType: movieType,
+            pageIndex: 1,
+            start: 0,
+            count: 10
+        }
+    })
+    return;
+}
+</code></pre><h3 id="-loading-">根据loading状态触发请求</h3>
+<pre><code>// 组件更新函数
+componentDidUpdate() {
+    if(this.state.isLoading){
+        this.fetch(this.state.message.movieType)
+    }else{
+        this.addEventListener()
+    }
+}
+</code></pre><h3 id="-scroll-">解决切换类别时scroll触发请求</h3>
+<blockquote>
+<p>在<code>loading</code>状态注销滚动事件</p>
+</blockquote>
+<pre><code>componentDidUpdate() {
+    if(this.state.isLoading){
+        // 防止切换类别时scroll在底部自动触发请求
+        this.refs.scrollContainer.onscroll = null;
+        this.fetch(this.state.message.movieType)
+    }else{
+        this.addEventListener()
+    }
+}
+</code></pre><blockquote>
+<p><code>loading</code> 添加样式</p>
+</blockquote>
+<pre><code>&lt;div ref=&#39;scrollContainer&#39; className=&#39;movieList_container&#39;&gt;
+    正在加载数据....
+&lt;/div&gt;
+</code></pre><h3 id="-">记录选中类别</h3>
+<blockquote>
+<p>添加点击事件</p>
+</blockquote>
+<pre><code>&lt;div className=&#39;movie_menu&#39;&gt;
+    &lt;Link className={this.state.movieType == &#39;in_theaters&#39;?&#39;movie_current&#39;:&#39;&#39;} to=&quot;/movie/movieList/in_theaters&quot; onClick={() =&gt; this.changeMovieType(&#39;in_theaters&#39;)}&gt;正在热映&lt;/Link&gt;
+    &lt;Link className={this.state.movieType == &#39;coming_soon&#39;?&#39;movie_current&#39;:&#39;&#39;} to=&quot;/movie/movieList/coming_soon&quot; onClick={() =&gt; this.changeMovieType(&#39;coming_soon&#39;)}&gt;即将上映&lt;/Link&gt;
+    &lt;Link className={this.state.movieType == &#39;top250&#39;?&#39;movie_current&#39;:&#39;&#39;} to=&quot;movie/movieList/top250&quot; onClick={() =&gt; this.changeMovieType(&#39;top250&#39;)}&gt;TOP250&lt;/Link&gt;
+&lt;/div&gt;
+</code></pre><blockquote>
+<p>根据点击事件传递的类别改变记录的类别信息</p>
+</blockquote>
+<pre><code>// 根据点击事件改变类别信息
+changeMovieType = (movieType) =&gt; {
+    this.setState({
+        movieType:movieType
+    })
+}
+</code></pre><blockquote>
+<p>根据类别更改样式</p>
+</blockquote>
+<pre><code>className={this.state.movieType == &#39;in_theaters&#39;?&#39;movie_current&#39;:&#39;&#39;}
+</code></pre><h2 id="-">搜索功能</h2>
+<h3 id="-">受控表单</h3>
+<pre><code>&lt;input type=&quot;text&quot; value={this.state.keyword} onChange={this.changeKeyWord}/&gt;
+
+// 根据输入的文字改变记录的信息 然后更改表单中的显示
+changeKeyWord = (e)=&gt;{
+    this.setState({
+        keyword:e.targe.value
+    })
+}
+</code></pre><h3 id="-">跳转页面</h3>
+<pre><code>// 1. 添加点击事件
+&lt;button onClick={this.goSearch}&gt;搜索&lt;/button&gt;
+
+// 2. 页面跳转
+goSearch = () =&gt; {  
+// 使用router的push方法跳转页面    this.context.router.push(`/movie/movieSearch/${this.state.keyword}`)
+    // 清空关键字
+    this.setState({
+        keyword: &#39;&#39;,
+        movieType: &#39;&#39;
+    })
+}
+
+// 3.接收参数
+// 路由
+&lt;Route path=&quot;movieSearch/:keyword&quot; component={MovieSearchContainer} /&gt;
+// MovieSearchContainer
+console.log(this.props.params.keyword)
+</code></pre><h3 id="-">请求数据</h3>
+<blockquote>
+<p><code>MovieSearchContainer</code> 中逻辑和<code>MovieListContainer</code>中一样,只需要把<code>movieType</code>全部改成<code>keyword</code></p>
+</blockquote>
+<h2 id="-">服务器渲染</h2>
+<h3 id="-">发布代码</h3>
+<blockquote>
+<p>使用<code>npm run publish</code> 发布代码，将代码放到服务器上,配置服务器使用服务器渲染页面</p>
+</blockquote>
+<pre><code>// 修改webpack.publish.config
+output: {
+    // 输出至哪个文件夹
+    path: path.resolve(__dirname, &#39;dist&#39;),
+    // 输出的文件名
+    filename: &#39;bundle.js&#39;,
+    publicPath: &#39;/&#39;,
+    sourceMapFilename:&#39;[name].map&#39;
+}
+</code></pre><h3 id="-">配置服务器</h3>
+<blockquote>
+<p>将发布后的代码拷贝到服务器下的<code>public</code>文件夹，然后服务器添加如下信息</p>
+</blockquote>
+<pre><code>app.use(express.static(__dirname+&#39;/public&#39;))
+
+app.get(&#39;*&#39;,function(req,res,next){
+    res.sendFile(path.resolve(__dirname,&#39;public&#39;,&#39;index.html&#39;))
+})
+</code></pre><p><img src="media/14901097854518/1489863258048.png" alt="1489863258048"></p>
+<blockquote>
+<p>此时就可以用服务器地址访问项目</p>
+</blockquote>
+<h2 id="-">异步代码加载</h2>
+<blockquote>
+<p>凡是非首页都需要用到该页面时再加载js代码</p>
+</blockquote>
+<h3 id="-">更改路由配置</h3>
+<ol>
+<li><p>取消代码引入</p>
+<p> <img src="media/14901097854518/1489864376338.png" alt="1489864376338"></p>
+</li>
+<li><p>异步加载代码</p>
+<pre><code> &lt;Route path=&quot;movie&quot;
+     getComponent={
+         (nextState, callback) =&gt; {
+             require.ensure([], (require) =&gt; {
+                 callback(null, require(&quot;../containers/MovieContainer.js&quot;).default)
+             }, &quot;movie&quot;)
+         }
+     }
+ &gt;
+</code></pre></li>
+</ol>
+<h3 id="-">修改发布配置</h3>
+<blockquote>
+<p>添加<code>chunkFilename</code></p>
+</blockquote>
+<pre><code>output: {
+    // 输出至哪个文件夹
+    path: path.resolve(__dirname, &#39;dist&#39;),
+    // 输出的文件名
+    filename: &#39;bundle.js&#39;,
+    publicPath: &#39;/&#39;,
+    chunkFilename: &#39;[name]_[chunkhash:8]_chunk.jsx&#39;,
+    sourceMapFilename: &#39;[name].map&#39;
+}
+</code></pre><blockquote>
+<p>重新发布代码</p>
+</blockquote>
+<pre><code>npm run publish
+</code></pre><p><img src="media/14901097854518/1489864649986.png" alt="1489864649986"></p>
+<h1 id="webpack2-">webpack2学习</h1>
+<h2 id="-">介绍</h2>
+<ul>
+<li>webpack和gulp一样是一个自动化的构建工具<ul>
+<li>你不想做的东西都交给工具去做，比如混淆，压缩，移动，合并，添加浏览器兼容性词缀</li>
+</ul>
+</li>
+<li><p>gulp更适合做简单的流程性的操作，webpack是专门为处理SPA应用的复杂文件依赖而出现的</p>
+<ul>
+<li>如图</li>
+</ul>
+<p><img src="media/14901110865337/14901112012644.jpg" alt=""></p>
+</li>
+</ul>
+<h3 id="-">安装依赖</h3>
+<ul>
+<li><code>npm install webpack -g</code></li>
+<li><code>npm install webpack -save-dev</code></li>
+</ul>
+<h3 id="-">编写配置文件</h3>
+<pre><code>var path=require(&#39;path&#39;)
+
+module.exports = {
+    // 指定spa应用的入口文件
+    entry: path.resolve(__dirname, &#39;src/js/app.js&#39;),
+    // 指定项目构建的输出位置
+    output: {
+        path: path.resolve(__dirname, &#39;dist&#39;),
+        filename: &#39;bundle.js&#39;,
+    }
+}
+</code></pre><h3 id="-">运行</h3>
+<ul>
+<li>在项目根目录执行<code>webpack</code>可以启动默认配置文件webpack.config.js</li>
+<li>运行指定配置文件执行<code>webpack --config webpack.develop.config.js</code></li>
+</ul>
+<h3 id="-package-json-">把运行命令放到package.json文件中</h3>
+<ul>
+<li>启动命令还可以加很多参数<code>webpack --config webpack.develop.config.js --progress --profile --colors</code></li>
+<li>这么多参数不可能都记住，所以将启动命令写到package.json的script标签中</li>
+</ul>
+<h3 id="-">监听代码变化自动重新构建</h3>
+<ul>
+<li>代码的变动需要多次运行<code>npm run develop</code>所以我们需要自动监听代码变动，然后运行构建，于是我们用到了webpack-dev-server这个模块</li>
+</ul>
+<h4 id="webpack-deve-server-">webpack-deve-server介绍</h4>
+<ul>
+<li>webpack-dev-server封装了webpack和http模块<ul>
+<li>所以webpack的所有命令，webpack-deve-server都可以使用</li>
+<li>webpack-dev-server可以指定一个文件夹启动一个服务<ul>
+<li>webpack-dev-server启动的服务所有的内容都构建在内存中</li>
+<li>因为构建在内存中速度快，还有一个功能，就是没有变化的文件，不重新构建，只有变化了的文件才从新执行构建</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>作用<ul>
+<li>一是监听文件变化自动重新构建</li>
+<li>二是自动刷新浏览器，可以热更新</li>
+</ul>
+</li>
+</ul>
+<h4 id="-">基本使用</h4>
+<ul>
+<li>下载<code>npm install webpack-dev-server@9.9.9 -save-dev</code>,注意选择2.x版本的模块</li>
+<li>修改package.json文件中的命令<code>webpack-dev-server --config webpack.develop.config.js --progress --profile --colors</code></li>
+<li><p>修改开发配置文件</p>
+<ul>
+<li>webpack2中推荐所有的服务配置信息都写到配置文件中的devServer属性中，不要写在package.json中</li>
+<li>基本配置</li>
+</ul>
+<pre><code>devServer: {
+     // 指定启动服务的更目录
+     contentBase: __dirname + &#39;/src&#39;,
+     // 指定端口号
+     port: 8080,
+     host: &#39;localhost&#39;,
+     // 以下信息可有可无，为了完整
+     inline: true, 
+     historyApiFallback: true,
+     noInfo: false,
+     // stats: &#39;minimal&#39;,
+     // publicPath: publicPath
+},
+</code></pre></li>
+</ul>
+<h4 id="-">热更新</h4>
+<ul>
+<li>可以不刷新浏览器更新</li>
+<li>修改配置文件</li>
+</ul>
+<pre><code>devServer: {
+    // 指定启动服务的更目录
+    contentBase: __dirname + &#39;/src&#39;,
+    // 指定端口号
+    port: 8080,
+    host: &#39;localhost&#39;,
+    // 启用热更新
+    hot: true,
+    // 以下信息可有可无，为了完整
+    inline: true, 
+    historyApiFallback: true,
+    noInfo: false,
+    // stats: &#39;minimal&#39;,
+    // publicPath: publicPath
+},
+</code></pre><ul>
+<li>需要配合一个内置插件一起使用</li>
+</ul>
+<pre><code>var webpack=require(&#39;webpack&#39;)
+
+plugins: [
+   new webpack.HotModuleReplacementPlugin(),
+]
+</code></pre><h2 id="loaders-">Loaders（加载器）</h2>
+<ul>
+<li>在真正构建之前做一些预处理操作就叫加载器</li>
+</ul>
+<h3 id="-es6-es7-jsx-">处理es6、es7、jsx语法加载器</h3>
+<ul>
+<li><code>npm install babel-loader --save-dev</code></li>
+<li><code>npm install babel-core  babel-preset-es2015   babel-preset-react -save-dev</code></li>
+<li><code>npm install babel-preset-stage-0 babel-preset-stage-1 babel-preset-stage-2 babel-preset-stage-3 --save-dev</code></li>
+<li><code>npm install babel-plugin-transform-runtime -save-dev</code>这个插件的作用是支持es7特性</li>
+<li>修改配置文件</li>
+</ul>
+<pre><code>module: {
+        rules: [
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: &quot;babel-loader&quot;
+                    }
+                ]
+            }
+        ]
+    }
+</code></pre><ul>
+<li>创建.babelrc文件</li>
+</ul>
+<pre><code>{
+  &quot;presets&quot;: [
+    &quot;es2015&quot;,
+    &quot;react&quot;,
+    &quot;stage-0&quot;,
+    &quot;stage-1&quot;,
+    &quot;stage-2&quot;,
+    &quot;stage-3&quot;
+  ],
+  &quot;plugins&quot;: [
+    &quot;transform-runtime&quot;
+  ]
+}
+</code></pre><h3 id="-css-">处理css文件引用的加载器</h3>
+<ul>
+<li><code>npm install style-loader css-loader -save-dev</code></li>
+<li>修改配置文件</li>
+</ul>
+<pre><code> // 处理在js中引用css文件
+{
+    test: /\.css$/,
+    use: [&#39;style-loader&#39;, &#39;css-loader&#39;],
+},
+</code></pre><h3 id="-scss-less-">处理scss或者less文件引用的加载器</h3>
+<ul>
+<li><code>npm install sass-loader less-loader node-sass -save-dev</code></li>
+<li>修改配置文件</li>
+</ul>
+<pre><code>  // 处理在js中引用scss文件
+{
+    test: /\.scss$/,
+    use: [&#39;style-loader&#39;, &#39;css-loader&#39;, &#39;sass-loader&#39;],
+},
+{
+    test: /\.less$/,
+    use: [&#39;style-loader&#39;, &#39;css-loader&#39;, &#39;less-loader&#39;],
+},
+</code></pre><h3 id="-">处理图片引用的加载器</h3>
+<ul>
+<li><code>npm install url-loader file-loader -save-dev</code></li>
+<li>修改配置文件</li>
+</ul>
+<pre><code>// 处理图片操作  25000bit ~3kb
+{
+    test: /\.(png|jpg|jpeg|gif)$/,
+    use: &#39;url-loader&#39;
+},
+</code></pre><h3 id="-">处理字体文件引用的加载器</h3>
+<ul>
+<li><code>npm install url-loader file-loader -save-dev</code></li>
+<li>修改配置文件</li>
+</ul>
+<pre><code>// 处理字体文件
+{
+    test: /\.(eot|woff|ttf|woff2|svg)$/,
+    use: &#39;url-loader&#39;
+}
+</code></pre><h2 id="-">发布策略</h2>
+<ul>
+<li>简单的说就是将开发阶段的配置文件复制一份到部署的配置文件中，然后删删改改就可以了</li>
+<li>把热更新插件删除，devServer属性删除</li>
+<li>修改图片处理和字体处理加载器</li>
+</ul>
+<pre><code> // 处理图片操作  25000bit ~3kb
+{
+    test: /\.(png|jpg|jpeg|gif)$/,
+    use: &#39;url-loader?limit=25000&amp;name=images/[name].[ext]&#39;
+},
+// 处理字体文件
+{
+    test: /\.(eot|woff|ttf|woff2|svg)$/,
+    use: &#39;url-loader?limit=100000&amp;name=fonts/[name].[ext]&#39;
+}
+</code></pre><ul>
+<li>接下来运行<code>npm run  publish</code>就发布了</li>
+<li>不过要注意所有的css，js，图片都构建到一个bundle.js文件中了</li>
+</ul>
+<h2 id="plugins-">Plugins（插件）</h2>
+<ul>
+<li>在真正构建之后做一些后处理操作就叫插件</li>
+</ul>
+<h3 id="-">删除插件</h3>
+<ul>
+<li><code>npm install clean-webpack-plugin -save-dev</code></li>
+<li>使用</li>
+</ul>
+<pre><code>var CleanPlugin = require(&#39;clean-webpack-plugin&#39;);
+
+plugins: [
+    // 删除文件夹的插件
+    new CleanPlugin([&#39;dist&#39;])
+]
+</code></pre><h3 id="-js-">抽取公共js插件</h3>
+<ul>
+<li>使用</li>
+</ul>
+<pre><code> entry: {
+        app: path.resolve(__dirname, &#39;src/js/app.js&#39;),
+        vendors: [&#39;vue&#39;,&#39;vue-router&#39;,&#39;vuex&#39;]
+    },
+
+
+plugins: [
+    // 分离第三方应用的插件
+    new webpack.optimize.CommonsChunkPlugin({name: &#39;vendors&#39;, filename: &#39;vendors.js&#39;}),
+]
+</code></pre><h3 id="-">提取样式文件插件</h3>
+<ul>
+<li><code>npm install extract-text-webpack-plugin@4.4.4 -save-dev</code>注意下载2.x版本</li>
+<li>使用</li>
+</ul>
+<pre><code>// 1、抽取css的第三方插件
+var ExtractTextPlugin = require(&quot;extract-text-webpack-plugin&quot;);
+
+// 2、处理在js中引用css文件
+{
+    test: /\.css$/,
+    use: ExtractTextPlugin.extract({
+        fallbackLoader: &quot;style-loader&quot;,
+        loader: &quot;css-loader&quot;
+    })
+},
+// 处理在js中引用scss文件
+{
+    test: /\.scss$/,
+    use: ExtractTextPlugin.extract({
+        fallbackLoader: &quot;style-loader&quot;,
+        loader: &quot;css-loader!sass-loader&quot;
+    })
+},
+
+//3、加一个插件
+plugins: [
+    // 删除文件夹的插件
+    new ExtractTextPlugin(&quot;app.css&quot;),
+]
+</code></pre><h3 id="-html-">自动生成html插件</h3>
+<ul>
+<li><code>npm install html-webpack-plugin -save-dev</code></li>
+<li>在根目录创建template.html</li>
+</ul>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot;
+          content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&gt;
+    &lt;title&gt;webpack学习&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><ul>
+<li>修改配置文件</li>
+</ul>
+<pre><code>var HtmlWebpackPlugin = require(&#39;html-webpack-plugin&#39;);
+
+plugins: [
+    // 自动生成html插件
+   new HtmlWebpackPlugin({
+       template: &#39;./src/template.html&#39;,
+       htmlWebpackPlugin: {
+           &quot;files&quot;: {
+               &quot;css&quot;:[&quot;app.css&quot;],
+               &quot;js&quot;: [&quot;vendors.js&quot;, &quot;bundle.js&quot;]
+           }
+       },
+       minify: {
+           removeComments: true,
+           collapseWhitespace: true,
+           removeAttributeQuotes: true
+       }
+   }),
+]
+</code></pre><h3 id="-">压缩插件</h3>
+<ul>
+<li>修改配置文件</li>
+</ul>
+<pre><code>plugins: [
+   // 压缩混淆js代码插件
+   new webpack.optimize.UglifyJsPlugin({
+       beautify: false,
+       mangle: {
+           screw_ie8: true,
+           keep_fnames: true
+       },
+       compress: {
+           warnings: false,
+           screw_ie8: true
+       },
+       comments: false
+   }),
+]
+</code></pre><h3 id="-">定义生产环境插件</h3>
+<ul>
+<li>修改配置文件</li>
+</ul>
+<pre><code>plugins: [
+  // 在构建的过程中删除警告
+   new webpack.DefinePlugin({
+       &#39;process.env&#39;:{
+           NODE_ENV:&#39;&quot;production&quot;&#39;
+       }
+   })
+]
+</code></pre><h3 id="-">自动打开浏览器插件</h3>
+<ul>
+<li><code>npm install open-browser-webpack-plugin -save-dev</code></li>
+<li>使用</li>
+</ul>
+<pre><code>// 自动打开浏览器插件
+var OpenBrowserPlugin = require(&#39;open-browser-webpack-plugin&#39;)
+
+plugins: [
+    // 删除文件夹的插件
+   new OpenBrowserPlugin({url: &#39;http://localhost:8080/&#39;, browser: &#39;chrome&#39;})
+]
+</code></pre><h2 id="-">高级</h2>
+<h3 id="-gulp-">和gulp的集成</h3>
+<ul>
+<li><code>npm install gulp del gulp-sequence -save-dev</code></li>
+<li>编写配置文件</li>
+</ul>
+<pre><code>// gulp的任务是控制执行流程，webpack的任务是处理复杂引用的依赖
+
+var gulp = require(&#39;gulp&#39;);
+// 删除文件和目录
+var del = require(&#39;del&#39;);
+// 按顺序执行
+var gulpSequence = require(&#39;gulp-sequence&#39;);
+// 引入webpack的本地模块
+var webpack = require(&quot;webpack&quot;);
+// 引入wbpack的配置文件
+var webpackConfig = require(&quot;./webpack.publish.config.js&quot;);
+
+gulp.task(&#39;default&#39;, [&#39;sequence&#39;], function () {
+    console.log(&quot;项目构建成功&quot;);
+});
+
+// 流程控制
+gulp.task(&#39;sequence&#39;, gulpSequence(&#39;clean&#39;,&#39;webpack&#39;));
+
+// 删除文件和文件夹
+gulp.task(&#39;clean&#39;, function (cb) {
+    //del(&#39;dist);// 如果直接给dist的目录，项目启动的顺序还有清除结果会报错，所以要写的更详细一些
+    del([&#39;dist/*.js&#39;, &#39;dist/*.css&#39;, &#39;dist/images&#39;, &#39;dist/fonts,&#39;,&#39;dist/*.html&#39;]).then(function () {
+        cb()
+    });
+});
+
+
+//写一个任务，在gulp中执行webpack的构建
+// gulp 负责任务流程部分的操作，webpack负责复杂模块系统的引用分离工作
+gulp.task(&#39;webpack&#39;, function (cb) {
+    // 执行webpack的构建任务
+    webpack(webpackConfig, function (err, stats) {
+
+        if (err) {
+            console.log(&quot;构建任务失败&quot;);
+        } else {
+            cb();
+        }
+
+    });
+});
+</code></pre><!--
+    Author:LEO
+    WeChat:zw142857
+    QQ:765508285
+-->
+
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>

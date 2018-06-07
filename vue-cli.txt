@@ -6,3 +6,49 @@ vue init webpack projectName(自定义项目名称) 创建一个基于webpack模板的新项目
 进入到项目名称文件夹中执行 npm install 安装项目所需依赖
 
 运行 npm run dev 运行项目
+
+
+
+
+
+修改config/index.js 里的module.exports.build.assetsPublicPath: './' 进行真机测试
+
+
+
+关于兄弟组件传值，
+先定义一个 在assets文件夹下bus.js
+	import Vue from 'Vue'
+	export default new Vue;
+
+需要传值的组件
+	import bus from '../assets/js/bus.js'
+	在methods里定义一个事件触发
+	bus.$emit('change',"需要传的值")
+
+接收的组件
+	import bus from '../assets/js/bus.js'
+	bus.$on('change',(msg) => {
+		this.message = msg
+	});
+
+
+
+
+filter过滤器
+全局过滤器在main.js里定义
+	Vue.filter( 'discount' , function(value) {
+        	return value  * .5 ;
+  	});
+
+私有过滤器
+	filters: {
+              discount : function(value）{
+                    return value  / 100 ;
+              }
+        }
+
+
+
+
+
+
